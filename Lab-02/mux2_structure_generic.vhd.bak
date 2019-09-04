@@ -67,7 +67,7 @@ mux: for i in 0 to N-1 generate
 	or_i: andg2 
 		port map(i_A  => i_AS(i),
 				i_B  => i_BIS(i),
-				o_F  => o_F(i)); 
+				o_F  => o_F(i); 
 
 end generate;
   
