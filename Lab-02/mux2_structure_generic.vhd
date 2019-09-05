@@ -48,23 +48,24 @@ signal i_AS, i_BIS: std_logic_vector(N-1 downto 0);
 
 begin
 
---compute ~S
+mux: for i in 0 to N-1 generate
+
+	--compute ~S
 	invg_s: invg 
 		port map(i_A  => i_S,
 			 o_F  => inv_S);
-mux: for i in 0 to N-1 generate
-	--compute B & ~S
+	--compute B & S
 	andBIS_i: andg2 
 		port map(i_A  => i_B(i),
-				i_B  => inv_S,
+				i_B  => i_S,
 				o_F  => i_BIS(i));
-	--compute A & S
+	--compute A & ~S
 	andAS_i: andg2 
 		port map(i_A  => i_A(i),
-				i_B  => i_S,
+				i_B  => inv_S,
   	            o_F  => i_AS(i));
-	--compute (A & S) | (B & ~S)
-	or_i: andg2 
+	--compute (A & ~S) | (B & S)
+	or_i: org2 
 		port map(i_A  => i_AS(i),
 				i_B  => i_BIS(i),
 				o_F  => o_F(i)); 

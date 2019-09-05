@@ -7,7 +7,7 @@
 
 -- full_adder_structure.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file implements a full adeer mux using structure
+-- DESCRIPTION: This file implements a full adder using structure
 -- architecture
 
 -------------------------------------------------------------------------
@@ -21,9 +21,9 @@ entity full_adder_structure is
        i_C  : in std_logic;
        o_S  : out std_logic;
        o_C  : out std_logic);
-
 end full_adder_structure;
 
+architecture structure of full_adder_structure is
 component andg2
   port(i_A  : in std_logic;
        i_B  : in std_logic;
@@ -42,8 +42,7 @@ component xorg2
        o_F  : out std_logic);
 end component;
 
-signal xor_ab, and_ac, and_ab: std_logic;
-architecture structure of full_adder_structure is
+signal xor_ab, and_ac, and_ab, and_xc: std_logic;
 begin
 
 -- i_A ^ i_B

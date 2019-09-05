@@ -25,6 +25,8 @@ generic(N : integer := 32);
 
 end full_adder_structure_generic;
 
+architecture structure of full_adder_structure_generic is
+
 component full_adder_structure
   port(i_A  : in std_logic;
        i_B  : in std_logic;
@@ -34,7 +36,6 @@ component full_adder_structure
 end component;
 
 signal carry_in: std_logic_vector(N downto 0);
-architecture structure of full_adder_structure_generic is
 begin
 carry_in(0) <= i_C;
 adder: for i in 0 to N-1 generate

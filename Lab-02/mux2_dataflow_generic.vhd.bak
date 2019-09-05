@@ -27,7 +27,7 @@ end mux2_dataflow_generic;
 architecture dataflow of mux2_dataflow_generic is
 begin
 mux: for i in 0 to N-1 generate
-	o_F(i) <= (i_A(i) AND (NOT i_S)) OR (i_B(i) AND i_S);
+	o_F(i) <= (i_A(i) AND (NOT i_S)) OR (i_B(i) AND i_S));
 end generate;
  
 end dataflow;

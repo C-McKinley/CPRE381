@@ -27,7 +27,5 @@ end full_adder_dataflow_generic;
 
 architecture dataflow of full_adder_dataflow_generic is
 begin
-	o_S <= a xor b xor c;
-	o_C <= (a and b) or (c and (a xor b));
   
 end dataflow;
