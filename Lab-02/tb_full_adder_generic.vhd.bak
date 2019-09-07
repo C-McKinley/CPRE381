@@ -65,8 +65,33 @@ adder_d: full_adder_dataflow_generic
     s_A <= x"00000001";
     s_B <= x"00000002";
     s_Ci <= '0';
-    wait for 100 ns;
+    wait for 10 ns;
+    
+    s_A <= x"FFFFFFFF";
+    s_B <= x"00000000";
+    s_Ci <= '0';
+    wait for 10 ns;
+    
+    s_A <= x"FFFFFFFF";
+    s_B <= x"00000001";
+    s_Ci <= '0';
+    wait for 10 ns;
 
+    s_A <= x"00000000";
+    s_B <= x"00000000";
+    s_Ci <= '1';
+    wait for 10 ns;
+    
+    s_A <= x"FFFFFFFF";
+    s_B <= x"FFFFFFFF";
+    s_Ci <= '0';
+    wait for 10 ns;
+  
+    s_A <= x"11111111";
+    s_B <= x"11111111";
+    s_Ci <= '0';
+    wait for 10 ns;
+  
   end process;
   
 end behavior;

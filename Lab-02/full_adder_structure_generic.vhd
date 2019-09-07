@@ -46,5 +46,5 @@ adder: for i in 0 to N-1 generate
 				 o_S => o_S(i),
 				 o_C => carry_in(i+1));
 end generate;
-  
+o_C <= carry_in(N);
 end structure;

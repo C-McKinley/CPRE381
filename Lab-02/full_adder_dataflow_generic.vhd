@@ -26,9 +26,14 @@ generic(N : integer := 32);
 end full_adder_dataflow_generic;
 
 architecture dataflow of full_adder_dataflow_generic is
+	signal carry_in: std_logic_vector(N downto 0);
 	begin
+carry_in(0) <= i_C;
 	  adder: for i in 0 to N-1 generate
-		o_S(i) <= i_C xor (i_A(i) xor i_B(i));
-		o_C <= (i_A(i) and i_B(i)) or (i_B(i) and i_C) or (i_A(i) and i_C);
-		end generate
+		
+		o_S(i) <= carry_in(i) xor i_A(i) xor i_B(i);
+		carry_in(i) <= (i_A(i) and i_B(i)) or (i_B(i) and carry_in(i)) or (i_A(i) and carry_in(i));
+ 		end generate;
+o_C <= carry_in(N);
+		
 	end dataflow;
