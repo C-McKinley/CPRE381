@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dU:/cpre_381/CPRE381/Lab-02
 Eadder_subtractor_structure_generic
-Z1 w1567895669
+Z1 w1568066092
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 R0
@@ -21,9 +21,9 @@ V?3E1CmcbjP@l2g4g@_i>;2
 !s100 9ODBE[<>fN7:4Ccbi7k]j1
 Z6 OP;C;10.7b;67
 32
-Z7 !s110 1568041734
+Z7 !s110 1568066103
 !i10b 1
-Z8 !s108 1568041733.000000
+Z8 !s108 1568066102.000000
 Z9 !s90 -reportprogress|300|-work|work|adder_subtractor_structure_generic.vhd|andg2.vhd|full_adder_dataflow_generic.vhd|full_adder_structure.vhd|full_adder_structure_generic.vhd|generate_example.vhd|invg.vhd|mux2_dataflow_generic.vhd|mux2_structure.vhd|mux2_structure_generic.vhd|ones_complimenter_dataflow.vhd|ones_complimenter_structure.vhd|org2.vhd|tb_adder_subtractor_structure_generic.vhd|tb_andg2.vhd|tb_full_adder.vhd|tb_full_adder_generic.vhd|tb_mux2.vhd|tb_ones_complimenter.vhd|xorg2.vhd|
 Z10 !s107 xorg2.vhd|tb_ones_complimenter.vhd|tb_mux2.vhd|tb_full_adder_generic.vhd|tb_full_adder.vhd|tb_andg2.vhd|tb_adder_subtractor_structure_generic.vhd|org2.vhd|ones_complimenter_structure.vhd|ones_complimenter_dataflow.vhd|mux2_structure_generic.vhd|mux2_structure.vhd|mux2_dataflow_generic.vhd|invg.vhd|generate_example.vhd|full_adder_structure_generic.vhd|full_adder_structure.vhd|full_adder_dataflow_generic.vhd|andg2.vhd|adder_subtractor_structure_generic.vhd|
 !i113 1
@@ -33,10 +33,10 @@ Astructure
 R2
 R3
 Z13 DEx4 work 34 adder_subtractor_structure_generic 0 22 ?3E1CmcbjP@l2g4g@_i>;2
-l55
+l57
 L29
-Z14 V=mIG^XkeVdcF8hKh5nRIH1
-Z15 !s100 b^C4jOQ<iBCimOE`<9iO73
+V`F5m@SO=]f2bch1hLAMCA0
+!s100 5fC=Tm0@P_97<NBjcj8gm3
 R6
 32
 R7
@@ -48,12 +48,12 @@ R10
 R11
 R12
 Eandg2
-Z16 w1558467780
+Z14 w1558467780
 R2
 R3
 R0
-Z17 8andg2.vhd
-Z18 Fandg2.vhd
+Z15 8andg2.vhd
+Z16 Fandg2.vhd
 l0
 L23
 VQ@<<<@nlJ=eiIl4BJDFzW2
@@ -71,11 +71,11 @@ R12
 Adataflow
 R2
 R3
-Z19 DEx4 work 5 andg2 0 22 Q@<<<@nlJ=eiIl4BJDFzW2
+Z17 DEx4 work 5 andg2 0 22 Q@<<<@nlJ=eiIl4BJDFzW2
 l32
 L31
-Z20 VJVOzCk?IH:iJ5bCRU`CK13
-Z21 !s100 I`@Z@UBObS]<7m8bPgKUS1
+Z18 VJVOzCk?IH:iJ5bCRU`CK13
+Z19 !s100 I`@Z@UBObS]<7m8bPgKUS1
 R6
 32
 R7
@@ -87,12 +87,12 @@ R10
 R11
 R12
 Efull_adder_dataflow_generic
-Z22 w1568040920
+Z20 w1568040920
 R2
 R3
 R0
-Z23 8full_adder_dataflow_generic.vhd
-Z24 Ffull_adder_dataflow_generic.vhd
+Z21 8full_adder_dataflow_generic.vhd
+Z22 Ffull_adder_dataflow_generic.vhd
 l0
 L18
 VIcT3WfkGNenEX1zgMTbfd2
@@ -110,11 +110,11 @@ R12
 Adataflow
 R2
 R3
-Z25 DEx4 work 27 full_adder_dataflow_generic 0 22 IcT3WfkGNenEX1zgMTbfd2
+Z23 DEx4 work 27 full_adder_dataflow_generic 0 22 IcT3WfkGNenEX1zgMTbfd2
 l30
 L28
-Z26 V:k^n`k;`5am:lSPS:8U2k1
-Z27 !s100 =<46b4[oX@mG1f?2];DaG3
+Z24 V:k^n`k;`5am:lSPS:8U2k1
+Z25 !s100 =<46b4[oX@mG1f?2];DaG3
 R6
 32
 R7
@@ -126,12 +126,12 @@ R10
 R11
 R12
 Efull_adder_structure
-Z28 w1567639794
+Z26 w1567639794
 R2
 R3
 R0
-Z29 8full_adder_structure.vhd
-Z30 Ffull_adder_structure.vhd
+Z27 8full_adder_structure.vhd
+Z28 Ffull_adder_structure.vhd
 l0
 L18
 V1;e:gYOm2FQEDHRhhGcVa1
@@ -149,11 +149,11 @@ R12
 Astructure
 R2
 R3
-Z31 DEx4 work 20 full_adder_structure 0 22 1;e:gYOm2FQEDHRhhGcVa1
+Z29 DEx4 work 20 full_adder_structure 0 22 1;e:gYOm2FQEDHRhhGcVa1
 l46
 L26
-Z32 VzHR1CMmNH1kJO_hjhnfC32
-Z33 !s100 U^3_a2ah@fD<gWQE>58MP1
+Z30 VzHR1CMmNH1kJO_hjhnfC32
+Z31 !s100 U^3_a2ah@fD<gWQE>58MP1
 R6
 32
 R7
@@ -165,12 +165,12 @@ R10
 R11
 R12
 Efull_adder_structure_generic
-Z34 w1567875395
+Z32 w1567875395
 R2
 R3
 R0
-Z35 8full_adder_structure_generic.vhd
-Z36 Ffull_adder_structure_generic.vhd
+Z33 8full_adder_structure_generic.vhd
+Z34 Ffull_adder_structure_generic.vhd
 l0
 L18
 VR^YOLFl6VlZK>l<Ve^1hS1
@@ -188,11 +188,11 @@ R12
 Astructure
 R2
 R3
-Z37 DEx4 work 28 full_adder_structure_generic 0 22 R^YOLFl6VlZK>l<Ve^1hS1
+Z35 DEx4 work 28 full_adder_structure_generic 0 22 R^YOLFl6VlZK>l<Ve^1hS1
 l39
 L28
-Z38 VI1ePJV5l1<eFoQdkma42W2
-Z39 !s100 XfZ>;<mYDY^5=_1R@j^3i3
+Z36 VI1ePJV5l1<eFoQdkma42W2
+Z37 !s100 XfZ>;<mYDY^5=_1R@j^3i3
 R6
 32
 R7
@@ -204,12 +204,12 @@ R10
 R11
 R12
 Egenerate_example
-R16
+R14
 R2
 R3
 R0
-Z40 8generate_example.vhd
-Z41 Fgenerate_example.vhd
+Z38 8generate_example.vhd
+Z39 Fgenerate_example.vhd
 l0
 L22
 V2TfO^^TeJZoFR69ga`Rmh1
@@ -227,11 +227,11 @@ R12
 Astructure
 R2
 R3
-Z42 DEx4 work 16 generate_example 0 22 2TfO^^TeJZoFR69ga`Rmh1
+Z40 DEx4 work 16 generate_example 0 22 2TfO^^TeJZoFR69ga`Rmh1
 l38
 L30
-Z43 V;_X6MQ``RdJ>mdLV2<<4_2
-Z44 !s100 TfaRR45_]hjVS7hNXIQ[R3
+Z41 V;_X6MQ``RdJ>mdLV2<<4_2
+Z42 !s100 TfaRR45_]hjVS7hNXIQ[R3
 R6
 32
 R7
@@ -243,12 +243,12 @@ R10
 R11
 R12
 Einvg
-R16
+R14
 R2
 R3
 R0
-Z45 8invg.vhd
-Z46 Finvg.vhd
+Z43 8invg.vhd
+Z44 Finvg.vhd
 l0
 L23
 VQ?6hb9ePk@>kZZ9k]hNSO3
@@ -266,11 +266,11 @@ R12
 Adataflow
 R2
 R3
-Z47 DEx4 work 4 invg 0 22 Q?6hb9ePk@>kZZ9k]hNSO3
+Z45 DEx4 work 4 invg 0 22 Q?6hb9ePk@>kZZ9k]hNSO3
 l31
 L30
-Z48 Vch>li:oKYZkCO5]GamViK1
-Z49 !s100 bk7I76o8e1LURdoZEQb8H0
+Z46 Vch>li:oKYZkCO5]GamViK1
+Z47 !s100 bk7I76o8e1LURdoZEQb8H0
 R6
 32
 R7
@@ -282,12 +282,12 @@ R10
 R11
 R12
 Emux2_dataflow_generic
-Z50 w1567641555
+Z48 w1567641555
 R2
 R3
 R0
-Z51 8mux2_dataflow_generic.vhd
-Z52 Fmux2_dataflow_generic.vhd
+Z49 8mux2_dataflow_generic.vhd
+Z50 Fmux2_dataflow_generic.vhd
 l0
 L18
 V7LihUdc^R=0<;:DK:B=E92
@@ -305,11 +305,11 @@ R12
 Adataflow
 R2
 R3
-Z53 DEx4 work 21 mux2_dataflow_generic 0 22 7LihUdc^R=0<;:DK:B=E92
+Z51 DEx4 work 21 mux2_dataflow_generic 0 22 7LihUdc^R=0<;:DK:B=E92
 l28
 L27
-Z54 VmIoUhULZ]2?X;Yo8@ZFFY0
-Z55 !s100 dDJP;FKgW2edJgNi`92:f1
+Z52 VmIoUhULZ]2?X;Yo8@ZFFY0
+Z53 !s100 dDJP;FKgW2edJgNi`92:f1
 R6
 32
 R7
@@ -321,12 +321,12 @@ R10
 R11
 R12
 Emux2_structure
-Z56 w1567555323
+Z54 w1567555323
 R2
 R3
 R0
-Z57 8mux2_structure.vhd
-Z58 Fmux2_structure.vhd
+Z55 8mux2_structure.vhd
+Z56 Fmux2_structure.vhd
 l0
 L18
 V0[J_7Ym9O]SL3V1<zCN<71
@@ -344,11 +344,11 @@ R12
 Astructure
 R2
 R3
-Z59 DEx4 work 14 mux2_structure 0 22 0[J_7Ym9O]SL3V1<zCN<71
+Z57 DEx4 work 14 mux2_structure 0 22 0[J_7Ym9O]SL3V1<zCN<71
 l47
 L26
-Z60 V]gmOBjbEP2G8bl1^[DAzi0
-Z61 !s100 ehS;Pjd<3feH^D5Y^4dEF2
+Z58 V]gmOBjbEP2G8bl1^[DAzi0
+Z59 !s100 ehS;Pjd<3feH^D5Y^4dEF2
 R6
 32
 R7
@@ -360,12 +360,12 @@ R10
 R11
 R12
 Emux2_structure_generic
-Z62 w1567642559
+Z60 w1567642559
 R2
 R3
 R0
-Z63 8mux2_structure_generic.vhd
-Z64 Fmux2_structure_generic.vhd
+Z61 8mux2_structure_generic.vhd
+Z62 Fmux2_structure_generic.vhd
 l0
 L18
 V`aoDL@[WGSYMb7;IMnz0D1
@@ -383,11 +383,11 @@ R12
 Astructure
 R2
 R3
-Z65 DEx4 work 22 mux2_structure_generic 0 22 `aoDL@[WGSYMb7;IMnz0D1
+Z63 DEx4 work 22 mux2_structure_generic 0 22 `aoDL@[WGSYMb7;IMnz0D1
 l49
 L27
-Z66 V_Qo3@GJYm8J?=D>7SZ8S>0
-Z67 !s100 M@e2Uz6N4c[@Jz??eCW@P1
+Z64 V_Qo3@GJYm8J?=D>7SZ8S>0
+Z65 !s100 M@e2Uz6N4c[@Jz??eCW@P1
 R6
 32
 R7
@@ -420,12 +420,12 @@ R6
 R11
 R12
 Eones_complimenter_dataflow
-Z68 w1567547357
+Z66 w1567547357
 R2
 R3
 R0
-Z69 8ones_complimenter_dataflow.vhd
-Z70 Fones_complimenter_dataflow.vhd
+Z67 8ones_complimenter_dataflow.vhd
+Z68 Fones_complimenter_dataflow.vhd
 l0
 L18
 V^ghBmd24e82zX:zIX<5P91
@@ -443,11 +443,11 @@ R12
 Adataflow
 R2
 R3
-Z71 DEx4 work 26 ones_complimenter_dataflow 0 22 ^ghBmd24e82zX:zIX<5P91
+Z69 DEx4 work 26 ones_complimenter_dataflow 0 22 ^ghBmd24e82zX:zIX<5P91
 l27
 L25
-Z72 V5L:aM^eYBnQj2[Sc?bPfR1
-Z73 !s100 b;HInKaF:IOQ58URX[i:41
+Z70 V5L:aM^eYBnQj2[Sc?bPfR1
+Z71 !s100 b;HInKaF:IOQ58URX[i:41
 R6
 32
 R7
@@ -459,12 +459,12 @@ R10
 R11
 R12
 Eones_complimenter_structure
-Z74 w1567547372
+Z72 w1567547372
 R2
 R3
 R0
-Z75 8ones_complimenter_structure.vhd
-Z76 Fones_complimenter_structure.vhd
+Z73 8ones_complimenter_structure.vhd
+Z74 Fones_complimenter_structure.vhd
 l0
 L18
 V;@FhzY9=:oXVP^QGmk>C^0
@@ -482,11 +482,11 @@ R12
 Astructure
 R2
 R3
-Z77 DEx4 work 27 ones_complimenter_structure 0 22 ;@FhzY9=:oXVP^QGmk>C^0
+Z75 DEx4 work 27 ones_complimenter_structure 0 22 ;@FhzY9=:oXVP^QGmk>C^0
 l32
 L25
-Z78 ViE3[>U2=l?Q_5o:Hma>gG2
-Z79 !s100 JHGI_ol6XWz12Tn3<e=bJ2
+Z76 ViE3[>U2=l?Q_5o:Hma>gG2
+Z77 !s100 JHGI_ol6XWz12Tn3<e=bJ2
 R6
 32
 R7
@@ -498,12 +498,12 @@ R10
 R11
 R12
 Eorg2
-R16
+R14
 R2
 R3
 R0
-Z80 8org2.vhd
-Z81 Forg2.vhd
+Z78 8org2.vhd
+Z79 Forg2.vhd
 l0
 L23
 V[C`FCj=kL0CTBYLlbjJzD3
@@ -521,11 +521,11 @@ R12
 Adataflow
 R2
 R3
-Z82 DEx4 work 4 org2 0 22 [C`FCj=kL0CTBYLlbjJzD3
+Z80 DEx4 work 4 org2 0 22 [C`FCj=kL0CTBYLlbjJzD3
 l32
 L31
-Z83 VNHGn>Kh:]BEh4o]ImiG<d3
-Z84 !s100 h5_AzR3TdRA0a_K=dQ>mI2
+Z81 VNHGn>Kh:]BEh4o]ImiG<d3
+Z82 !s100 h5_AzR3TdRA0a_K=dQ>mI2
 R6
 32
 R7
@@ -537,12 +537,12 @@ R10
 R11
 R12
 Etb_adder_subtractor_structure_generic
-Z85 w1568041716
+Z83 w1568041716
 R2
 R3
 R0
-Z86 8tb_adder_subtractor_structure_generic.vhd
-Z87 Ftb_adder_subtractor_structure_generic.vhd
+Z84 8tb_adder_subtractor_structure_generic.vhd
+Z85 Ftb_adder_subtractor_structure_generic.vhd
 l0
 L18
 VgCQY:C5PH>_jH03E_aK061
@@ -560,11 +560,11 @@ R12
 Abehavior
 R2
 R3
-Z88 DEx4 work 37 tb_adder_subtractor_structure_generic 0 22 gCQY:C5PH>_jH03E_aK061
+Z86 DEx4 work 37 tb_adder_subtractor_structure_generic 0 22 gCQY:C5PH>_jH03E_aK061
 l37
 L22
-V?O:>fTQ^3lN65>fkMIf@?3
-!s100 lW7`g6NbjYfR`3:D9`T:H2
+Z87 V?O:>fTQ^3lN65>fkMIf@?3
+Z88 !s100 lW7`g6NbjYfR`3:D9`T:H2
 R6
 32
 R7
@@ -576,7 +576,7 @@ R10
 R11
 R12
 Etb_andg2
-R16
+R14
 R2
 R3
 R0
@@ -684,7 +684,7 @@ Z104 VATNSRH:n]hb[<WN;ACU2X2
 Z105 !s100 =H;DlX4i_]]bFkjN6@DV73
 R6
 32
-R7
+Z106 !s110 1568066104
 !i10b 1
 R8
 R9
@@ -693,19 +693,19 @@ R10
 R11
 R12
 Etb_mux2
-Z106 w1567641000
+Z107 w1567641000
 R2
 R3
 R0
-Z107 8tb_mux2.vhd
-Z108 Ftb_mux2.vhd
+Z108 8tb_mux2.vhd
+Z109 Ftb_mux2.vhd
 l0
 L18
 V`66fHD<jk4XU^IVMj6AV90
 !s100 NXh_0YC[aPVIASzc[K26:2
 R6
 32
-R7
+R106
 !i10b 1
 R8
 R9
@@ -716,14 +716,14 @@ R12
 Abehavior
 R2
 R3
-Z109 DEx4 work 7 tb_mux2 0 22 `66fHD<jk4XU^IVMj6AV90
+Z110 DEx4 work 7 tb_mux2 0 22 `66fHD<jk4XU^IVMj6AV90
 l43
 L22
-Z110 V7JQ00j3MI1M?I=fLo<PVz0
-Z111 !s100 bkBF`Gkm4CPgzgS>gojnU3
+Z111 V7JQ00j3MI1M?I=fLo<PVz0
+Z112 !s100 bkBF`Gkm4CPgzgS>gojnU3
 R6
 32
-R7
+R106
 !i10b 1
 R8
 R9
@@ -732,19 +732,19 @@ R10
 R11
 R12
 Etb_ones_complimenter
-Z112 w1567638651
+Z113 w1567638651
 R2
 R3
 R0
-Z113 8tb_ones_complimenter.vhd
-Z114 Ftb_ones_complimenter.vhd
+Z114 8tb_ones_complimenter.vhd
+Z115 Ftb_ones_complimenter.vhd
 l0
 L18
 VSASLK;^_[^in[[lI6l?1=0
 !s100 OJgR6>I?0nS1[LhAChKd32
 R6
 32
-R7
+R106
 !i10b 1
 R8
 R9
@@ -755,14 +755,14 @@ R12
 Abehavior
 R2
 R3
-Z115 DEx4 work 20 tb_ones_complimenter 0 22 SASLK;^_[^in[[lI6l?1=0
+Z116 DEx4 work 20 tb_ones_complimenter 0 22 SASLK;^_[^in[[lI6l?1=0
 l39
 L22
-Z116 VozjcCGH<7iO[7o2XCUHa>3
-Z117 !s100 Jn0hgjA^[jZ?cYznG7oRe0
+Z117 VozjcCGH<7iO[7o2XCUHa>3
+Z118 !s100 Jn0hgjA^[jZ?cYznG7oRe0
 R6
 32
-R7
+R106
 !i10b 1
 R8
 R9
@@ -771,19 +771,19 @@ R10
 R11
 R12
 Exorg2
-R16
+R14
 R2
 R3
 R0
-Z118 8xorg2.vhd
-Z119 Fxorg2.vhd
+Z119 8xorg2.vhd
+Z120 Fxorg2.vhd
 l0
 L23
 V;hb`C0MKik;h36`3`SzM60
 !s100 [hI[mXFH4_j16U;>U1Lfn2
 R6
 32
-R7
+R106
 !i10b 1
 R8
 R9
@@ -794,14 +794,14 @@ R12
 Adataflow
 R2
 R3
-Z120 DEx4 work 5 xorg2 0 22 ;hb`C0MKik;h36`3`SzM60
+Z121 DEx4 work 5 xorg2 0 22 ;hb`C0MKik;h36`3`SzM60
 l32
 L31
-Z121 VbmLohbkYjJQ`?EHUY>LoL1
-Z122 !s100 Z6[FAPS4fBLB`F?OO<AY72
+Z122 VbmLohbkYjJQ`?EHUY>LoL1
+Z123 !s100 Z6[FAPS4fBLB`F?OO<AY72
 R6
 32
-R7
+R106
 !i10b 1
 R8
 R9
