@@ -85,13 +85,25 @@ adder_s: adder_subtractor_structure_generic
     s_A <= x"00000001";
     s_B <= x"00000002";
     s_Ci <= '0';
-    s_Sel <= '0';
+    s_Sel <= '1';
     wait for 100 ns;
  
     s_A <= x"00000001";
-    s_B <= x"00000002";
+    s_B <= x"FFFFFFFF";
     s_Ci <= '0';
-    s_Sel <= '0';
+    s_Sel <= '1';
+    wait for 100 ns;
+
+    s_A <= x"00000000";
+    s_B <= x"FFFFFFFF";
+    s_Ci <= '0';
+    s_Sel <= '1';
+    wait for 100 ns;
+
+    s_A <= x"EEEEEEEE";
+    s_B <= x"FFFFFFFF";
+    s_Ci <= '0';
+    s_Sel <= '1';
     wait for 100 ns;
   end process;
   

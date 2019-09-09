@@ -32,7 +32,7 @@ carry_in(0) <= i_C;
 	  adder: for i in 0 to N-1 generate
 		
 		o_S(i) <= carry_in(i) xor i_A(i) xor i_B(i);
-		carry_in(i) <= (i_A(i) and i_B(i)) or (i_B(i) and carry_in(i)) or (i_A(i) and carry_in(i));
+		carry_in(i+1) <= (i_A(i) and i_B(i)) or (i_B(i) and carry_in(i)) or (i_A(i) and carry_in(i));
  		end generate;
 o_C <= carry_in(N);
 		

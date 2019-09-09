@@ -17,7 +17,7 @@ use IEEE.std_logic_1164.all;
 
 entity tb_adder_subtractor_structure_generic is
 generic(M : integer := 32);
-end tb_full_adder_generic;
+end tb_adder_subtractor_structure_generic;
 
 architecture behavior of tb_adder_subtractor_structure_generic is
 
@@ -89,7 +89,19 @@ adder_s: adder_subtractor_structure_generic
     wait for 100 ns;
  
     s_A <= x"00000001";
-    s_B <= x"00000002";
+    s_B <= x"FFFFFFFF";
+    s_Ci <= '0';
+    s_Sel <= '0';
+    wait for 100 ns;
+
+    s_A <= x"00000000";
+    s_B <= x"FFFFFFFF";
+    s_Ci <= '0';
+    s_Sel <= '0';
+    wait for 100 ns;
+
+    s_A <= x"EEEEEEEE";
+    s_B <= x"FFFFFFFF";
     s_Ci <= '0';
     s_Sel <= '0';
     wait for 100 ns;
