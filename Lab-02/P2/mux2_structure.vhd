@@ -42,32 +42,26 @@ component org2
        o_F  : out std_logic);
 end component;
 
-signal inv_S, i_AS, i_BIS
+signal inv_S, i_AS, i_BIS: std_logic;
 
 begin
 
 --compute ~S
-inv_s: invg 
-    port map(i_A  => i_S,
-  	     o_F  => inv_S);
+invg_S: invg port map(i_A  => i_S, o_F  => inv_S);
 --compute B & ~S
 andBIS_i: andg2 
-    port map(i_A  => i_B(i),
+    port map(i_A  => i_B,
              i_B  => inv_S,
   	          o_F  => i_BIS);
 --compute A & S
  andAS_i: andg2 
-    port map(i_A  => i_A(i),
+    port map(i_A  => i_A,
              i_B  => i_S,
   	          o_F  => i_AS);
 --compute (A & S) | (B & ~S)
  or_i: andg2 
-    port map(i_A  => i_AS(i),
-             i_B  => i_BIS(i),
+    port map(i_A  => i_AS,
+             i_B  => i_BIS,
   	          o_F  => o_F);
-   
-
-end generate;
-
   
 end structure;
