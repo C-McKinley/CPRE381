@@ -20,7 +20,6 @@ generic(N : integer := 32);
   port(i_A     : in std_logic_vector(N-1 downto 0);
        i_B     : in std_logic_vector(N-1 downto 0);
        i_C     : in std_logic;
-       i_Sel   : in std_logic;
        o_Sum   : out std_logic_vector(N-1 downto 0);
        o_Cout  : out std_logic);
 
@@ -63,10 +62,10 @@ one_comp: ones_complimenter_structure
 mux: mux2_structure_generic
 		port map(i_A => i_B,
 			 i_B => negi_B,
-			 i_S =>  i_Sel,
+			 i_S =>  i_C,
 			 o_F => selB);
 adder: for i in 0 to N-1 generate
-	fa_i: full_adder_structure_generic
+	fa_i: full_adder_structure
 		port map(i_A => i_A(i),
 		 	i_B => selB(i),
 		 	i_C => s_carry(i),

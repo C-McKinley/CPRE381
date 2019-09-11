@@ -26,12 +26,11 @@ component adder_subtractor_structure_generic
   port(i_A     : in std_logic_vector(N-1 downto 0);
        i_B     : in std_logic_vector(N-1 downto 0);
        i_C     : in std_logic;
-       i_Sel   : in std_logic;
        o_Sum   : out std_logic_vector(N-1 downto 0);
        o_Cout  : out std_logic);
 end component;
 
-signal s_Ci, s_Co, s_Sel : std_logic;
+signal s_Ci, s_Co : std_logic;
 signal s_A, s_B, s_Sum  : std_logic_vector(M-1 downto 0);
 
 begin
@@ -41,7 +40,6 @@ adder_s: adder_subtractor_structure_generic
       port map (i_A => s_A,
 		i_B => s_B,
 		i_C => s_Ci,
-		i_Sel => s_Sel,
 		o_Sum => s_Sum,
 		o_Cout => s_Co);
   process
@@ -51,7 +49,6 @@ adder_s: adder_subtractor_structure_generic
     s_A <= x"00000001";
     s_B <= x"00000002";
     s_Ci <= '0';
-    s_Sel <= '0';
     wait for 100 ns;
     
     s_A <= x"FFFFFFFF";
@@ -72,38 +69,37 @@ adder_s: adder_subtractor_structure_generic
     --Subtract tests
     s_A <= x"FFFFFFFF";
     s_B <= x"FFFFFFFF";
-    s_Ci <= '0';
-    s_Sel <= '1';
+    s_Ci <= '1';
     wait for 100 ns;
   
     s_A <= x"FFFFFFFF";
     s_B <= x"FFFFFFFE";
-    s_Ci <= '0';
-    s_Sel <= '1';
+    s_Ci <= '1';
     wait for 100 ns;
   
     s_A <= x"00000001";
     s_B <= x"00000002";
-    s_Ci <= '0';
-    s_Sel <= '0';
+    s_Ci <= '1';
     wait for 100 ns;
  
     s_A <= x"00000001";
     s_B <= x"FFFFFFFF";
-    s_Ci <= '0';
-    s_Sel <= '0';
+    s_Ci <= '1';
     wait for 100 ns;
 
     s_A <= x"00000000";
     s_B <= x"FFFFFFFF";
-    s_Ci <= '0';
-    s_Sel <= '0';
+    s_Ci <= '1';
     wait for 100 ns;
 
     s_A <= x"EEEEEEEE";
     s_B <= x"FFFFFFFF";
-    s_Ci <= '0';
-    s_Sel <= '0';
+    s_Ci <= '1';
+    wait for 100 ns;
+
+  s_A <= x"00000007";
+    s_B <= x"00000001";
+    s_Ci <= '1';
     wait for 100 ns;
   end process;
   
