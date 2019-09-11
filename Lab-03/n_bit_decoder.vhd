@@ -5,23 +5,23 @@
 -------------------------------------------------------------------------
 
 
--- n_bit_register.vhd
+-- n_bit_decoder.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file implements a n-bit register using dff
+-- DESCRIPTION: This file implements a n:2^n decoder
 
 -------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity n_bit_register is
-  generic(N: integer:=32);
+  generic(N: integer:= 5);
   port(i_clk : in std_logic;     -- Clock input
-       i_rst : in std_logic;     -- Reset input
        i_ld  : in std_logic;     -- Load input
        i_in  : in std_logic_vector(N-1 downto 0);     -- Data value input
-       o_out : out std_logic_vector(N-1 downto 0));   -- Data value output
+       o_f : out std_logic_vector(2**N-1 downto 0));   -- Data value output
 
 end n_bit_register;
 
