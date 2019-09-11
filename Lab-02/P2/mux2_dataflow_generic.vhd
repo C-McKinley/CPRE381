@@ -5,9 +5,9 @@
 -------------------------------------------------------------------------
 
 
--- ones_complimenter_structure.vhd
+-- mux2_dataflow_generic.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file implements a one's complimenter using structure
+-- DESCRIPTION: This file implements a generic 2:1 mux using dataflow
 -- architecture
 
 -------------------------------------------------------------------------
@@ -15,27 +15,19 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity ones_complimenter_structure is
-  generic(N : integer := 32);
+entity mux2_dataflow_generic is
+generic(N : integer := 32);
   port(i_A  : in std_logic_vector(N-1 downto 0);
+       i_B  : in std_logic_vector(N-1 downto 0);
+       i_S  : in std_logic;
        o_F  : out std_logic_vector(N-1 downto 0));
 
-end ones_complimenter_structure;
+end mux2_dataflow_generic;
 
-architecture structure of ones_complimenter_structure is
-
-component invg
-  port(i_A  : in std_logic;
-       o_F  : out std_logic);
-end component;
-
+architecture dataflow of mux2_dataflow_generic is
 begin
-
-one_comp: for i in 0 to N-1 generate
-  and_i: invg 
-    port map(i_A  => i_A(i),
-  	     o_F  => o_F(i));
+mux: for i in 0 to N-1 generate
+	o_F(i) <= (i_A(i) AND (NOT i_S)) OR (i_B(i) AND i_S);
 end generate;
-
-  
-end structure;
+ 
+end dataflow;
