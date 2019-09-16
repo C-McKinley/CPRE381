@@ -14,7 +14,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use work.register_array_t.all
+use work.register_array_t.all;
 
 entity mux_32_1 is
   port( i_in : in reg_arr;     -- Register array
@@ -23,5 +23,6 @@ entity mux_32_1 is
 end mux_32_1;
 
 architecture dataflow of mux_32_1 is
+begin
 	o_out <= i_in(to_integer(unsigned(i_sel)));
 end dataflow;
