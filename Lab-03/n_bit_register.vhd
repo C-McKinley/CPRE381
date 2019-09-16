@@ -43,10 +43,10 @@ begin
   -- synchronous write. We want to be able to reset 
   -- our processor's registers so that we minimize
   -- glitchy behavior on startup.
-  process (i_CLK, i_RST)
+  process (i_clk, i_rst)
   begin
     if (i_RST = '1') then
-      s_Q <= (others => '0')
+      s_Q <= (others => '0');
     elsif (rising_edge(i_CLK)) then
       s_Q <= s_D;
     end if;
