@@ -13,7 +13,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use work.register_array_t.all
+use work.register_array_t.all;
 
 
 entity tb_mux_32_1 is
@@ -21,7 +21,7 @@ end tb_mux_32_1;
 
 architecture behavior of tb_mux_32_1 is
 
-	component mux32_1
+	component mux_32_1
 		port(i_in : reg_arr;
 			i_sel : in std_logic_vector(5-1 downto 0);
 			o_out : out std_logic_vector(32-1 downto 0));
@@ -61,110 +61,104 @@ architecture behavior of tb_mux_32_1 is
 	signal s_sel: std_logic_vector(5-1 downto 0);
 	signal s_F: std_logic_vector(32-1 downto 0);
 	begin 
-	mux: mux32_1
-  port map(i_in  => s_in,
+	mux: mux_32_1 port map(i_in  => s_in,
 			i_sel => s_sel,
-  	        o_F  => s_F);
+  	        o_out  => s_F);
 	process
 	begin
-		s_sel <= x"001";
+		s_sel <= "00001";
 		wait for 100 ns;
 
-		s_sel <= x"002";
+		s_sel <= "00010";
 		wait for 100 ns;
 
-		s_sel <= x"003";
+		s_sel <= "00011";
 		wait for 100 ns;
 		
-		s_sel <= x"004";
+		s_sel <= "00100";
 		wait for 100 ns;
 		
-		s_sel <= x"005";
+		s_sel <= "00101";
 		wait for 100 ns;
 		
-		s_sel <= x"006";
+		s_sel <= "00110";
 		wait for 100 ns;
 		
-		s_sel <= x"007";
+		s_sel <= "00111";
 		wait for 100 ns;
 		
-		s_sel <= x"008";
+		s_sel <= "01000";
 		wait for 100 ns;
 		
-		s_sel <= x"009";
+		s_sel <= "01001";
 		wait for 100 ns;
 		
-		s_sel <= x"00A";
+		s_sel <= "01010";
 		wait for 100 ns;
 		
-		s_sel <= x"00B";
+		s_sel <= "01011";
 		wait for 100 ns;
 		
-		s_sel <= x"00C";
+		s_sel <= "01100";
 		wait for 100 ns;
 		
-		s_sel <= x"00D";
+		s_sel <= "01101";
 		wait for 100 ns;
 		
-		s_sel <= x"00E";
+		s_sel <= "01110";
 		wait for 100 ns;
 		
-		s_sel <= x"00F";
+		s_sel <= "01111";
 		wait for 100 ns;
 		
-		s_sel <= x"010";
+		s_sel <= "10000";
 		wait for 100 ns;
 		
-		s_sel <= x"011";
+		s_sel <= "10001";
 		wait for 100 ns;
 		
-		s_sel <= x"012";
+		s_sel <= "10010";
 		wait for 100 ns;
 		
-		s_sel <= x"013";
+		s_sel <= "10011";
 		wait for 100 ns;
 		
-		s_sel <= x"014";
+		s_sel <= "10010";
 		wait for 100 ns;
 		
-		s_sel <= x"015";
+		s_sel <= "10101";
 		wait for 100 ns;
 		
-		s_sel <= x"016";
+		s_sel <= "10110";
 		wait for 100 ns;
 		
-		s_sel <= x"017";
+		s_sel <= "10111";
 		wait for 100 ns;
 		
-		s_sel <= x"018";
+		s_sel <= "11000";
 		wait for 100 ns;
 		
-		s_sel <= x"019";
+		s_sel <= "11001";
 		wait for 100 ns;
 		
-		s_sel <= x"01A";
+		s_sel <= "11010";
 		wait for 100 ns;
 		
-		s_sel <= x"01B";
+		s_sel <= "11011";
 		wait for 100 ns;
 		
-		s_sel <= x"01C";
+		s_sel <= "11100";
 		wait for 100 ns;
 		
-		s_sel <= x"01D";
+		s_sel <= "11101";
 		wait for 100 ns;
 		
-		s_sel <= x"01E";
+		s_sel <= "11110";
 		wait for 100 ns;
 		
-		s_sel <= x"01F";
+		s_sel <= "11111";
 		wait for 100 ns;
 		
-		s_sel <= x"020";
-		wait for 100 ns;
-		
-		s_sel <= x"021";
-		wait for 100 ns;
 
   end process;
   

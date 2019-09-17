@@ -16,15 +16,15 @@ use IEEE.std_logic_1164.all;
 
 entity decoder_5_to_32 is
    port(i_S	: in std_logic_vector(4 downto 0);
-		i_en : in std_logic;
+	i_en : in std_logic;
 	o_F	: out std_logic_vector(31 downto 0));
 end decoder_5_to_32;
 
 architecture structure of decoder_5_to_32 is
-
+signal temp: std_logic_vector(31 downto 0);
 begin
 
-with i_S select o_F <=
+with i_S select temp <=
 	"00000000000000000000000000000001" when "00000",
 	"00000000000000000000000000000010" when "00001",
 	"00000000000000000000000000000100" when "00010",
@@ -60,7 +60,7 @@ with i_S select o_F <=
 	"00000000000000000000000000000000" when others;
 -- decoder enable
 with i_en select
-    o_F <= o_F when '1',
+    o_F <= temp when '1',
            "00000000000000000000000000000000" when others;
 
 end structure;

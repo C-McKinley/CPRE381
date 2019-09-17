@@ -23,17 +23,20 @@ architecture behavior of tb_decoder_5_32 is
 
 component decoder_5_to_32 is
    port(i_S	: in std_logic_vector(4 downto 0);
+	i_en : in std_logic;
 	o_F	: out std_logic_vector(31 downto 0));
 end component;
 signal s_in: std_logic_vector(5-1 downto 0);
 signal s_F: std_logic_vector(32-1 downto 0);
-
+signal s_en : std_logic;
 begin
 decoder: decoder_5_to_32 
   port map(i_S  => s_in,
+	i_en => s_en,
   	        o_F  => s_F);
 	process
 	begin
+		s_en <= '1';
 		s_in <= "00000";
 		wait for 100 ns;
 
@@ -130,9 +133,10 @@ decoder: decoder_5_to_32
 		s_in <= "11111";
 		wait for 100 ns;
 		
-		s_in <= x"021";
+		s_in <= "11111";
+		s_en <= '0';
 		wait for 100 ns;
-
+		
   end process;
   
 end behavior;
