@@ -85,12 +85,14 @@ begin
     s_RST <= '0';
 	s_we <= '1';
      s_wd   <= x"0000000E";
-    s_wa <= "00001";
-    s_raa   <= "11110";
+    s_wa <= "00010";
+    s_raa   <= "00001";
     s_rab   <= "01111";
     wait for cCLK_PER;  
+	
     s_RST <= '0';
    s_wd   <= x"000000EE";
+   s_we <= '1';
     s_wa <= "00001";
     s_raa   <= "10000";
     s_rab   <= "01111";
@@ -99,13 +101,23 @@ begin
     s_RST <= '0';
 	s_we <= '0';
     s_wd   <= x"000000EE";
-    s_wa <= "00001";
+	s_we <= '1';
+    s_wa <= "00011";
     s_raa   <= "10111";
     s_rab   <= "11011";
     wait for cCLK_PER;  
 
     s_RST <= '0';
 	s_we <= '1';
+   s_wd   <= x"000000EE";
+    s_wa <= "00001";
+    s_raa   <= "11111";
+    s_rab   <= "01110";
+    wait for cCLK_PER;  
+
+
+    s_RST <= '0';
+	s_we <= '0';
    s_wd   <= x"000000EE";
     s_wa <= "00001";
     s_raa   <= "11111";
