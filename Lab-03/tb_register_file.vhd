@@ -38,14 +38,6 @@ architecture behavior of tb_register_file is
   signal s_CLK, s_RST, s_WE  : std_logic;
   signal s_da, s_db, s_wd : std_logic_vector(32-1 downto 0);
 	signal s_wa, s_raa, s_rab : std_logic_vector(4 downto 0);
-	signal s_arr: reg_arr := (x"0000000F", x"000000EF", x"00000DDF", x"0000CDEF",
-				 x"000BCDEF", x"00ABCDEF", x"09ABCDEF", x"89ABCDEF",
-				 x"F0000000",x"FE000000",x"FED00000",x"FEDC0000",
-				x"FEDCB000",x"FEDCBA00",x"FEDCBA90",x"FEDCBA98",
-				x"FFFFFFFF",x"F0F0F0F0",x"0F0F0F0F",x"0D0D0D0D",
-				x"D0D0D0D0",x"C0C0C0C0",x"0C0C0C0C",x"B0B0B0B0",
-				x"0B0B0B0B", x"A0A0A0A0", x"0A0A0A0A", x"12345678",
-				 x"23456789", x"3456789A", x"456789AB", x"56789ABC");
 begin
 
   reg_file: register_file
@@ -76,7 +68,7 @@ begin
     -- Reset the FF
     s_RST <= '1';
     s_WE  <= '0';
-    s_wd   <= x"0000000E";
+    s_wd   <= x"0000000F";
     s_wa <= "00001";
     s_raa   <= "10101";
     s_rab   <= "01010";
@@ -84,14 +76,14 @@ begin
 
     s_RST <= '0';
 	s_we <= '1';
-     s_wd   <= x"0000000E";
+     s_wd   <= x"000000EF";
     s_wa <= "00010";
     s_raa   <= "00001";
     s_rab   <= "01111";
     wait for cCLK_PER;  
 	
     s_RST <= '0';
-   s_wd   <= x"000000EE";
+   s_wd   <= x"00000DDF";
    s_we <= '1';
     s_wa <= "00001";
     s_raa   <= "10000";
@@ -100,7 +92,7 @@ begin
  
     s_RST <= '0';
 	s_we <= '0';
-    s_wd   <= x"000000EE";
+    s_wd   <= x"0000CDEF";
 	s_we <= '1';
     s_wa <= "00011";
     s_raa   <= "10111";
@@ -109,8 +101,8 @@ begin
 
     s_RST <= '0';
 	s_we <= '1';
-   s_wd   <= x"000000EE";
-    s_wa <= "00001";
+   s_wd   <= x"000BCDEF";
+    s_wa <= "00101";
     s_raa   <= "11111";
     s_rab   <= "01110";
     wait for cCLK_PER;  
@@ -118,8 +110,16 @@ begin
 
     s_RST <= '0';
 	s_we <= '0';
-   s_wd   <= x"000000EE";
-    s_wa <= "00001";
+   s_wd   <= x"00ABCDEF";
+    s_wa <= "00111";
+    s_raa   <= "11111";
+    s_rab   <= "01110";
+    wait for cCLK_PER;  
+
+  s_RST <= '0';
+	s_we <= '1';
+   s_wd   <= x"09ABCDEF";
+    s_wa <= "00111";
     s_raa   <= "11111";
     s_rab   <= "01110";
     wait for cCLK_PER;  

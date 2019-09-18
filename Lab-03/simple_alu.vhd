@@ -5,7 +5,7 @@
 -------------------------------------------------------------------------
 
 
--- adder_subtractor_module.vhd
+-- simple_alu.vhd
 -------------------------------------------------------------------------
 -- DESCRIPTION: This file implements a adder subtractor module using 
 -- structure architecture
@@ -24,7 +24,8 @@ generic(N : integer := 32);
 		n_add_sub    : in std_logic; -- select bit
 		i_clk : in std_logic;
 		i_alusrc : in std_logic; -- use immediate
-		i_write_en :in std_logic; -- save enable);
+		i_write_en :in std_logic -- save enable
+	);
 
 end simple_alu;
 
