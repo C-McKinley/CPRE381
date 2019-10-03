@@ -56,7 +56,7 @@ o_set <= s_overflow;
 -- full adder
 adder: full_adder_structure port map(i_A => i_a, i_B => i_b, i_C => i_cin, o_S => add_sub_res, o_C => s_cout);
 -- slt
-slt_res <= add_sub_res and '1';
+slt_res <= i_less;
 -- and
 and_res <= i_a and i_b;
 -- or
