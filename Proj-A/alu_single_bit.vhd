@@ -13,18 +13,18 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity alu_single_bit is
-  port(i_ctrl : in std_logic_vector(4-1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
+  port(i_ctrl : in std_logic_vector(3-1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
 	i_a: in std_logic;
 	i_b: in std_logic;
 	i_cin: in std_logic;
 	i_less: in std_logic;
 	o_f: out std_logic;
 	o_cout: out std_logic;
-	o_set: out std_logic;
+	o_set: out std_logic
 	);
 end alu_single_bit;
 
-architecture structure of alu_single_bit is
+architecture mixed of alu_single_bit is
 
 component full_adder_structure is
 	port( i_A  : in std_logic;
@@ -39,7 +39,7 @@ signal add_sub_res, slt_res, and_res, or_res, xor_res, nand_res, nor_res : std_l
 signal s_overflow, s_cout: std_logic;
 begin
 -- overflow
-s_overflow <= i_cin xor s_cout
+s_overflow <= i_cin xor s_cout;
 -- output mux
 with i_ctrl select o_f <=
 	add_sub_res when "000", -- add
@@ -70,4 +70,4 @@ nor_res <= i_a nor i_b;
 
 
 
-end structure;  
+end mixed;  
