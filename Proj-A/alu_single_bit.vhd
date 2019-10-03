@@ -16,9 +16,10 @@ entity alu_single_bit is
   port(i_ctrl : in std_logic_vector(4-1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
 	i_a: in std_logic;
 	i_b: in std_logic;
-	i_carry_in: in std_logic;
+	i_cin: in std_logic;
+	i_less: in std_logic;
 	o_f: out std_logic;
-	o_carry_out: out std_logic
+	o_cout: out std_logic
 	);
 end alu_single_bit;
 
