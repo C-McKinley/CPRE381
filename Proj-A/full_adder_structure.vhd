@@ -42,7 +42,7 @@ component xorg2
        o_F  : out std_logic);
 end component;
 
-signal xor_ab, and_ac, and_ab, and_xc: std_logic;
+signal xor_ab, and_ab, and_xc: std_logic;
 begin
 
 -- i_A ^ i_B
