@@ -47,29 +47,14 @@ adder: full_adder_structure
     s_B <= '0';
     s_Ci <= '0';
     wait for 100 ns;
-	
-	s_A <= '0';
-    s_B <= '1';
-    s_Ci <= '0';
-    wait for 100 ns;
-	
-	s_A <= '0';
-    s_B <= '0';
-    s_Ci <= '1';
-    wait for 100 ns;
-	
-	s_A <= '0';
-    s_B <= '1';
-    s_Ci <= '1';
-    wait for 100 ns;
-    
-	s_A <= '1';
+
+    s_A <= '1';
     s_B <= '1';
     s_Ci <= '0';
     wait for 100 ns;
 
     s_A <= '0';
-    s_B <= '1';
+    s_B <= '0';
     s_Ci <= '1';
     wait for 100 ns;
 
