@@ -85,7 +85,7 @@ s_i_ctrl <= "0000";
 s_i_a 	 <= '1';
 s_i_b	 <= '1';
     wait for gCLK_HPER;
-assert s_o_f = '1' report "4" severity warning;
+assert s_o_f = '0' report "4" severity warning;
 
 --sub
 s_i_ctrl <= "0001";
