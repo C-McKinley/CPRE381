@@ -13,7 +13,7 @@ use IEEE.std_logic_1164.all;
 entity barrel_shifter is
 	port (
 		i_a      : in std_logic_vector(32 - 1 downto 0);
-		i_shift  : in std_logic_vector(5 - 1 downto 0); -- shamt
+		i_shift  : in std_logic_vector(5 - 1 downto 0); --
 		i_la     : in std_logic_vector(5 - 1 downto 0); -- logical or arithmetic
 		i_rl     : in std_logic_vector(5 - 1 downto 0); -- right or left
 		o_f      : out std_logic_vector(32 - 1 downto 0)
@@ -45,12 +45,12 @@ architecture structure of barrel_shifter is
 			o_F  : out std_logic
 		);
 	end component;
-	component mux2_structure_generic
+	component mux2_structure
 		port (
-			i_A  : in std_logic_vector(32 - 1 downto 0);
-			i_B  : in std_logic_vector(32 - 1 downto 0);
+			i_A  : in std_logic;
+			i_B  : in std_logic;
 			i_S  : in std_logic;
-			o_F  : out std_logic_vector(32 - 1 downto 0)
+			o_F  : out std_logic
 		);
 	end component;
 
@@ -67,6 +67,11 @@ architecture structure of barrel_shifter is
 	signal s_stage2 : std_logic_vector(32 - 1 downto 0);
 	signal s_stage3 : std_logic_vector(32 - 1 downto 0);
 	signal s_stage4 : std_logic_vector(32 - 1 downto 0);
-
+	signal s_shamt : std_logic_vector(32 - 1 downto 0);
 begin
+	-- stage 0
+	common: for i in 0 to 31 generate
+		mux2_structure_generic port map(i_A => s_shamt(i), i_B => s_shamt(i+1), i_S => i
+	end generate;
+	
 end structure;
