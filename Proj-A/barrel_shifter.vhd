@@ -14,8 +14,8 @@ entity barrel_shifter is
 	port (
 		i_data      : in std_logic_vector(32 - 1 downto 0);
 		i_shift  : in std_logic_vector(5 - 1 downto 0); --
-		i_la     : in std_logic_vector(5 - 1 downto 0); -- logical or arithmetic
-		i_rl     : in std_logic_vector(5 - 1 downto 0); -- right or left
+		i_la     : in std_logic; -- logical or arithmetic
+		i_rl     : in std_logic; -- right or left
 		o_f      : out std_logic_vector(32 - 1 downto 0)
 	);
 end barrel_shifter;
@@ -57,9 +57,9 @@ architecture structural of barrel_shifter is
 	component mux2_structure_generic
 		port (
 			i_A  : in std_logic_vector(31 downto 0);
-			i_B  : in std_logic (31 downto 0);
+			i_B  : in std_logic_vector(31 downto 0);
 			i_S  : in std_logic;
-			o_F  : out std_logic (31 downto 0)
+			o_F  : out std_logic_vector(31 downto 0)
 		);
 	end component;
 
@@ -131,4 +131,4 @@ begin
 	bit30_stage4: mux2_structure port map(i_A => s_stage3(30), i_B => s_arithmetic_bit, i_S => s_shift(4), o_f => s_stage4(30));
 	bit31_stage4: mux2_structure port map(i_A => s_stage3(31), i_B => s_arithmetic_bit, i_S => s_shift(4), o_f => s_stage4(31));
 
-end structure;
+end structural;

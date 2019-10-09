@@ -23,16 +23,15 @@ component barrel_shifter is
 	port (
 		i_a      : in std_logic_vector(32 - 1 downto 0);
 		i_shift  : in std_logic_vector(5 - 1 downto 0); 
-		i_la     : in std_logic_vector(5 - 1 downto 0); 
-		i_rl     : in std_logic_vector(5 - 1 downto 0); 
+		i_la     : in std_logic; 
+		i_rl     : in std_logic; 
 		o_f      : out std_logic_vector(32 - 1 downto 0)
 	);
-component barrel_shifter;
+end component;
 
-	signal s_i_ctrl : std_logic_vector(3 - 1 downto 0);
-	signal s_i_a : std_logic;
-	signal s_i_b : std_logic;
-	signal s_o_f : std_logic;
+	signal s_shift : std_logic_vector(5 - 1 downto 0);
+	signal s_i_a : std_logic_vector(32 - 1 downto 0);
+	signal s_o_f : std_logic_vector(32 - 1 downto 0);
 	signal s_CLK : std_logic;
 	signal s_la : std_logic;
 	signal s_rl : std_logic;
@@ -43,7 +42,7 @@ begin
 		i_shift => s_shift, 
 		i_la => s_la, 
 		i_rl => s_rl, 
-		o_f => s_o_f, 
+		o_f => s_o_f
 	);
 
 	P_CLK : process
@@ -108,7 +107,7 @@ begin
 		assert s_o_f = x"00001E00" report "srl_3" severity warning;
 		
 		-- sra
-		s_la <= '1'
+		s_la <= '1';
 		s_rl <= '0';
 
 		s_shift <= "00000";
