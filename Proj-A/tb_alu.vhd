@@ -75,8 +75,65 @@ begin
 		s_i_a <= x"00000000";
 		s_i_b <= x"00000000";
 		wait for gCLK_HPER;
+		assert s_o_f = x"00000000"; report "0_sum" severity warning;
+		assert s_o_cout = '0' report "0_carry" severity warning;
+
+		s_i_cin <= '1';
+		s_i_ctrl <= "000";
+		s_i_a <= x"00000000";
+		s_i_b <= x"00000000";
+		wait for gCLK_HPER;
+		assert s_o_f = x"00000001"; report "1_sum" severity warning;
+		assert s_o_cout = '0' report "1_carry" severity warning;
+
+		s_i_cin <= '0';
+		s_i_ctrl <= "000";
+		s_i_a <= x"10101010";
+		s_i_b <= x"01010101";
+		wait for gCLK_HPER;
+		assert s_o_f = x"11111111"; report "2_sum" severity warning;
+		assert s_o_cout = '0' report "2_carry" severity warning;
+
+		s_i_cin <= '0';
+		s_i_ctrl <= "000";
+		s_i_a <= x"FFFFFFFF";
+		s_i_b <= x"FFFFFFFF";
+		wait for gCLK_HPER;
+		assert s_o_f = x"FFFFFFFE"; report "3_sum" severity warning;
+		assert s_o_cout = '1' report "3_carry" severity warning;
+
+		--sub
+		s_i_cin <= '0';
+		s_i_ctrl <= "001";
+		s_i_a <= x"00000000";
+		s_i_b <= x"00000000";
+		wait for gCLK_HPER;
+		assert s_o_f = x"00000000"; report "0_sum" severity warning;
+		assert s_o_cout = '0' report "0_carry" severity warning;
+
+		s_i_cin <= '0';
+		s_i_ctrl <= "001";
+		s_i_a <= x"FFFFFFFF";
+		s_i_b <= x"FFFFFFFF";
+		wait for gCLK_HPER;
 		assert s_o_f = x"00000000"; report "1_sum" severity warning;
 		assert s_o_cout = '0' report "1_carry" severity warning;
+
+		s_i_cin <= '1';
+		s_i_ctrl <= "001";
+		s_i_a <= x"10101010";
+		s_i_b <= x"01010101";
+		wait for gCLK_HPER;
+		assert s_o_f = x"11111111"; report "2_sum" severity warning;
+		assert s_o_cout = '0' report "2_carry" severity warning;
+
+		s_i_cin <= '0';
+		s_i_ctrl <= "001";
+		s_i_a <= x"FFFFFFFF";
+		s_i_b <= x"FFFFFFFF";
+		wait for gCLK_HPER;
+		assert s_o_f = x"FFFFFFFE"; report "3_sum" severity warning;
+		assert s_o_cout = '1' report "3_carry" severity warning;
 
 	end process;
 end behavior;
