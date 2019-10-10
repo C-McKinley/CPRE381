@@ -73,13 +73,13 @@ begin
 		s_shift <= "01000";
 		s_i_a <= x"0E0E0E0E";
 		wait for gCLK_HPER;
-		assert s_o_f = x"E0E0E0E0" report "sll_2" severity warning;
+		assert s_o_f = x"0E0E0E00" report "sll_2" severity warning;
 
 
 		s_shift <= "00011";
 		s_i_a <= x"0E0E0E0E";
 		wait for gCLK_HPER;
-		assert s_o_f = x"D1D1D1D0" report "sll_3" severity warning;
+		assert s_o_f = x"70707070" report "sll_3" severity warning;
 
 
 		-- srl
@@ -94,17 +94,17 @@ begin
 		s_shift <= "00100";
 		s_i_a <= x"0F0F0F0F";
 		wait for gCLK_HPER;
-		assert s_o_f = x"000F0F0F" report "srl_1" severity warning;
+		assert s_o_f = x"00F0F0F0" report "srl_1" severity warning;
 
 		s_shift <= "11111";
-		s_i_a <= x"00000001";
+		s_i_a <= x"80000000";
 		wait for gCLK_HPER;
-		assert s_o_f = x"80000000" report "srl_2" severity warning;
+		assert s_o_f = x"00000001" report "srl_2" severity warning;
 
 		s_shift <= "00011";
 		s_i_a <= x"8000F007";
 		wait for gCLK_HPER;
-		assert s_o_f = x"00001E00" report "srl_3" severity warning;
+		assert s_o_f = x"10001E00" report "srl_3" severity warning;
 		
 		-- sra
 		s_la <= '1';
@@ -118,10 +118,10 @@ begin
 		s_shift <= "00100";
 		s_i_a <= x"0F0F0F0F";
 		wait for gCLK_HPER;
-		assert s_o_f = x"000F0F0F" report "sra_1" severity warning;
+		assert s_o_f = x"00F0F0F0" report "sra_1" severity warning;
 
 		s_shift <= "11111";
-		s_i_a <= x"10000000";
+		s_i_a <= x"80000000";
 		wait for gCLK_HPER;
 		assert s_o_f = x"FFFFFFFF" report "sra_2" severity warning;
 

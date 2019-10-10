@@ -133,7 +133,7 @@ begin
 
 	-- stage 4
 	stg4: for i in 0 to 31 - 16 generate 
-		bit_i_stage4: mux2_structure port map(i_A => s_stage1(i), i_B => s_stage3(i+16), i_S => s_shift(4), o_f => s_stage4(i));
+		bit_i_stage4: mux2_structure port map(i_A => s_stage3(i), i_B => s_stage3(i+16), i_S => i_shift(4), o_f => s_stage4(i));
 	end generate;
 	bit16_stage4: mux2_structure port map(i_A => s_stage3(16), i_B => s_arithmetic_bit, i_S => i_shift(4), o_f => s_stage4(16));
 	bit17_stage4: mux2_structure port map(i_A => s_stage3(17), i_B => s_arithmetic_bit, i_S => i_shift(4), o_f => s_stage4(17));
