@@ -50,16 +50,16 @@ begin
 invg_S: invg port map(i_A  => i_S, o_F  => inv_S);
 --compute B & ~S
 andBIS_i: andg2 
-    port map(i_A  => i_B,
+    port map(i_A  => i_A,
              i_B  => inv_S,
   	          o_F  => i_BIS);
 --compute A & S
  andAS_i: andg2 
-    port map(i_A  => i_A,
+    port map(i_A  => i_B,
              i_B  => i_S,
   	          o_F  => i_AS);
 --compute (A & S) | (B & ~S)
- or_i: andg2 
+ or_i: org2 
     port map(i_A  => i_AS,
              i_B  => i_BIS,
   	          o_F  => o_F);

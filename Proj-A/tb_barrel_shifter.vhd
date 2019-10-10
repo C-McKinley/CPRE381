@@ -21,7 +21,7 @@ architecture behavior of tb_barrel_shifter is
 	
 component barrel_shifter is
 	port (
-		i_a      : in std_logic_vector(32 - 1 downto 0);
+		i_data     : in std_logic_vector(32 - 1 downto 0);
 		i_shift  : in std_logic_vector(5 - 1 downto 0); 
 		i_la     : in std_logic; 
 		i_rl     : in std_logic; 
@@ -38,7 +38,7 @@ end component;
 begin
 	shifter : barrel_shifter
 	port map(
-		i_a => s_i_a, 
+		i_data => s_i_a, 
 		i_shift => s_shift, 
 		i_la => s_la, 
 		i_rl => s_rl, 
