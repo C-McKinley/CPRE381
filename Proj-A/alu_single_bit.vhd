@@ -9,18 +9,20 @@
 -------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
+use work.opcode_t.all;
 
 entity alu_single_bit is
 	port 
 	(
-		i_ctrl : in std_logic_vector(3 - 1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
+		i_ctrl : in std_logic_vector(6 - 1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
 		i_a    : in std_logic;
 		i_b    : in std_logic;
 		i_cin  : in std_logic;
 		i_less : in std_logic;
 		o_f    : out std_logic;
 		o_cout : out std_logic;
-		o_set  : out std_logic
+		o_set  : out std_logic;
+		o_overflow: out std_logic
 	);
 end alu_single_bit;
 
@@ -45,16 +47,17 @@ begin
 	s_b <= i_cin xor i_b;
 	-- overflow
 	s_overflow <= i_cin xor s_cout;
+	o_overflow <= s_overflow;
 	-- output mux
 	with i_ctrl select o_f <= 
-		add_sub_res when "000", -- add
-		add_sub_res when "001", -- sub
-		slt_res when "010", -- slt
-		and_res when "011", -- and
-		or_res when "100", -- or
-		xor_res when "101", -- xor
-		nand_res when "110", -- nand
-		nor_res when "111", -- nor
+		add_sub_res when ADD_OP, -- add
+		add_sub_res when SUB_OP, -- sub
+		slt_res when SLT_OP, -- slt
+		and_res when AND_OP, -- and
+		or_res when OR_OP, -- or
+		xor_res when XOR_OP, -- xor
+		nand_res when NAND_OP, -- nand
+		nor_res when NOR_OP, -- nor
 		'0' when others;
 		o_cout <= s_cout;
 		o_set  <= s_overflow;
