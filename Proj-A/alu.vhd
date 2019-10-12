@@ -46,9 +46,8 @@ architecture structure of alu is
 		);
 	end component;
 	signal barrel_ctrl : std_logic_vector(1 downto 0); -- [0:{logic/arithmetic} 1:{right/left}]
-	signal alu_result, barrel_shifter_result : std_logic_vector(32 - 1 downto 0);
-	signal s_set, s_carry, s_overflow : std_logic_vector(32 downto 0);
-	signal s_cin : std_logic_vector(32 downto 0);
+	signal alu_result,  s_overflow, barrel_shifter_result, s_set : std_logic_vector(32 - 1 downto 0);
+	signal s_carry: std_logic_vector(32 downto 0);
 begin
 	with i_ctrl select barrel_ctrl <= 
 		"10" when SLL_OP, 
@@ -63,18 +62,22 @@ begin
 			i_rl => barrel_ctrl(1), 
 			o_f => barrel_shifter_result
 	);
-	s_carry(0) <= '0';
-	s_cin(0) <= '0';
+	with i_ctrl select s_carry(0) <= 
+		'1' when SUB_OP, -- sub
+		'1' when SLT_OP, -- slt
+		'0' when ADD_OP,
+		'0' when others;
+
 	alu_0 : alu_single_bit
 	port map(
 		i_ctrl => i_ctrl, 
 		i_a => i_a(0), 
 		i_b => i_b(0), 
 		i_cin => s_carry(0), 
-		i_less => s_set(32), 
+		i_less => s_set(31), 
 		o_f => alu_result(0), 
 		o_cout => s_carry(1), 
-		o_set => s_set(1), 
+		o_set => s_set(0), 
 		o_overflow => s_overflow(0)
 	);
 	alu_loop : for i in 1 to 31 generate
@@ -87,7 +90,7 @@ begin
 			i_less => '0', 
 			o_f => alu_result(i), 
 			o_cout => s_carry(i + 1), 
-			o_set => s_set(i + 1), 
+			o_set => s_set(i), 
 			o_overflow => s_overflow(i)
 		);
 	end generate;

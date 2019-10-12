@@ -100,8 +100,9 @@ begin
 
 		--sub  do not care about carry out
 		-- http://www.ece.iastate.edu/~alexs/classes/2019_Fall_281/slides_PDF/17_Signed_Numbers.pdf (slide 129)
-		s_cin <= '1';
+		
 		s_i_ctrl <= SUB_OP;
+		s_cin <= '1';
 		s_i_a <= '0';
 		s_i_b <= '0';
 		wait for gCLK_HPER;

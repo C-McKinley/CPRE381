@@ -78,7 +78,7 @@ begin
 	s_i_b <= x"FFFFFFFF";
 	wait for gCLK_HPER;
 	assert s_o_f = x"FFFFFFFE" report "3_sum" severity warning;
-	assert s_o_overflow = '1' report "3_sum_carry" severity warning;
+	assert s_o_overflow = '0' report "3_sum_carry" severity warning;
 
 	--sub
 	-- CM I feel like overflow doesnt matter for this... if it does we need to do the math ourselves.
@@ -98,14 +98,63 @@ begin
 	s_i_a <= x"10101010";
 	s_i_b <= x"01010101";
 	wait for gCLK_HPER;
-	assert s_o_f = x"0FF0F0F0F" report "2_diff" severity warning;
+	assert s_o_f = x"0F0F0F0F" report "2_diff" severity warning;
 	--assert s_o_overflow = '0' report "2_sub_carry" severity warning;
 
 	s_i_a <= x"FFFFFFFF";
 	s_i_b <= x"FFFFFFFF";
 	wait for gCLK_HPER;
-	assert s_o_f = x"0" report "3_diff" severity warning;
+	assert s_o_f = x"00000000" report "3_diff" severity warning;
 	--assert s_o_overflow = '0' report "3_carry" severity warning;
+
+	s_i_a <= x"0000000A";
+	s_i_b <= x"0000000B";
+	wait for gCLK_HPER;
+	assert s_o_f = x"FFFFFFFF" report "4_diff" severity warning;
+
+
+	--slt
+	
+	s_i_ctrl <= SLT_OP;
+	s_i_a <= x"00000000";
+	s_i_b <= x"00000000";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000000" report "1_slt" severity warning;
+	
+	s_i_a <= x"FFFFFFFF";
+	s_i_b <= x"00000000";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000001" report "2_slt" severity warning;
+	
+	s_i_a <= x"FFFFFFFF";
+	s_i_b <= x"FFFFFFFF";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000000" report "3_slt" severity warning;
+
+	s_i_a <= x"00000000";
+	s_i_b <= x"FFFFFFFF";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000000" report "4_slt" severity warning;
+
+	s_i_a <= x"FFFFFFFA";
+	s_i_b <= x"FFFFFFFF";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000001" report "5_slt" severity warning;
+
+	s_i_a <= x"00000000";
+	s_i_b <= x"00000001";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000001" report "6_slt" severity warning;
+
+	s_i_a <= x"00000000";
+	s_i_b <= x"E0000000";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000001" report "7_slt" severity warning;
+	
+	s_i_a <= x"FFFFFFFF";
+	s_i_b <= x"FFFFFFFA";
+	wait for gCLK_HPER;
+	assert s_o_f = x"00000000" report "8_slt" severity warning;
 
 	--nor
 	--0nor0
