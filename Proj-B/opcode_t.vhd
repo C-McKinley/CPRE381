@@ -28,6 +28,8 @@ package opcode_t is
 	constant SLLV_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001011";
 	constant SRLV_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001100";
 	constant SRAV_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001101";
+	constant STLU_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001110";
+	constant NO_ALU_OP : std_logic_vector(6 - 1 downto 0) := "111111";
 
 	-- Do not believe I need these
 	-- Remember to update the opcodes if they are needed
@@ -35,6 +37,7 @@ package opcode_t is
 	constant SW_OP : std_logic_vector(6 - 1 downto 0) := "001101";
  
 	-- MIPS OPCODES and FUNCTION CODES
+	constant MIPS_R_OP : std_logic_vector(6 - 1 downto 0) := "000000";
 	constant ADDI_MIPS_OP   : std_logic_vector(6 - 1 downto 0) := "001000";
 	constant ADDIU_MIPS_OP  : std_logic_vector(6 - 1 downto 0) := "001001";
 	constant ANDI_MIPS_OP   : std_logic_vector(6 - 1 downto 0) := "001100";
