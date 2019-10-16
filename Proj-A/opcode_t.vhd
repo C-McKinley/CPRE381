@@ -23,5 +23,8 @@ package opcode_t is
 	constant NOR_OP  : std_logic_vector(6 - 1 downto 0) := "000111";
 	constant SLL_OP  : std_logic_vector(6 - 1 downto 0) := "001000";
 	constant SRL_OP  : std_logic_vector(6 - 1 downto 0) := "001001";
-	constant SRA_OP  : std_logic_vector(6 - 1 downto 0) := "001011";
+	constant SRA_OP  : std_logic_vector(6 - 1 downto 0) := "001010";
+	constant ADDI_OP : std_logic_vector(6 - 1 downto 0) := "001011";
+	constant LW_OP 	 : std_logic_vector(6 - 1 downto 0) := "001100";
+	constant SW_OP   : std_logic_vector(6 - 1 downto 0) := "001101";
 end package opcode_t;

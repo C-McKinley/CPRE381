@@ -65,26 +65,30 @@ architecture structure of processor is
 	end component;
 	component alu is
 		port (
-			i_ctrl  : in std_logic_vector(3 - 1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
+			i_ctrl  : in std_logic_vector(6 - 1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
 			i_a     : in std_logic_vector(32 - 1 downto 0);
 			i_b     : in std_logic_vector(32 - 1 downto 0);
 			o_result    : out std_logic_vector(32 - 1 downto 0);
-			o_overflow  : out std_logic
+			o_overflow  : out std_logic;
+			o_zero : out std_logic
 		);
 	end component;
 	--format [0:{i_write_en} 1:{i_alusrc} 2:{n_add_sub} 3:{mem_result} 4:{mem_write}]
 	signal ctrl_signal : std_logic_vector(5 - 1 downto 0);
-	signal opcode : std_logic_vector( 3-1 downto 0);
+	signal opcode : std_logic_vector(6-1 downto 0);
 	signal data_a, data_b, write_data, alu_sum, sel_data_b, extended_immediate, zero_extended_immediate, sign_extended_immediate, mem_q : std_logic_vector(31 downto 0);
 	signal mem_addr : std_logic_vector(10 - 1 downto 0);
-	signal overflow, set : std_logic;
+	signal s_zero, overflow, set : std_logic;
 begin
 	-- control decoder
 	with i_opcode select ctrl_signal <= 
-		"01001" when "001000", --addi
-		"10001" when "100011", --lw
-		"10000" when "101011", --sw
-		"01011" when "000000", --add
+		"01001" when ADDI_OP, --addi
+		"10001" when LW_OP, --lw
+		"10000" when SW_OP, --sw
+		"01011" when ADD_OP, --add
+		"01001" when SLL_OP, --add
+		"01001" when SRA_OP, --add
+		"01001" when SRL_OP, --add
 		"00000" when others;
 		zextend : zero_extender
 		port map(i_in_16 => i_immediate, o_out_32 => zero_extended_immediate);
@@ -103,7 +107,7 @@ begin
 		o_data_a      => data_a, o_data_b => data_b
 );
 alu_compute : alu
-port map(i_ctrl => opcode, i_a => data_a , i_b => sel_data_b, o_result => alu_sum, o_overflow => overflow);
+port map(i_ctrl => i_opcode, i_a => data_a , i_b => sel_data_b, o_result => alu_sum, o_overflow => overflow, o_zero => s_zero);
 -- making it byte to word addressable by shifting by 2
 mem_addr <= alu_sum(11 downto 2);
 mem_file : mem

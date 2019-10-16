@@ -29,7 +29,8 @@ architecture behavior of tb_alu is
 		i_a : in std_logic_vector(32 - 1 downto 0);
 		i_b : in std_logic_vector(32 - 1 downto 0);
 		o_result : out std_logic_vector(32 - 1 downto 0);
-		o_overflow : out std_logic
+		o_overflow : out std_logic;
+		o_zero : out std_logic
 	);
 	end component;
 
@@ -38,6 +39,7 @@ architecture behavior of tb_alu is
 	signal s_i_b : std_logic_vector(32-1 downto 0);
 	signal s_o_f : std_logic_vector(32-1 downto 0);
 	signal s_o_overflow : std_logic;
+	signal s_zero : std_logic;
 	signal s_CLK : std_logic;
 	-- 0 add, 1 sub, 2 slt, 3 and, 4 or, 5 xor, 6 nand, 7 nor
 begin
@@ -47,7 +49,8 @@ begin
 		i_a => s_i_a, 
 		i_b => s_i_b, 
 		o_result => s_o_f, 
-		o_overflow => s_o_overflow
+		o_overflow => s_o_overflow,
+		o_zero => s_zero
 	);
 
 	P_CLK : process
@@ -147,7 +150,7 @@ begin
 	assert s_o_f = x"00000001" report "6_slt" severity warning;
 
 	s_i_a <= x"00000000";
-	s_i_b <= x"E0000000";
+	s_i_b <= x"70000000";
 	wait for gCLK_HPER;
 	assert s_o_f = x"00000001" report "7_slt" severity warning;
 	

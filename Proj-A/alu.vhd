@@ -9,6 +9,7 @@
 -------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
+use ieee.std_logic_misc.or_reduce;
 use work.opcode_t.all;
 
 entity alu is
@@ -17,7 +18,8 @@ entity alu is
 		i_a : in std_logic_vector(32 - 1 downto 0);
 		i_b : in std_logic_vector(32 - 1 downto 0);
 		o_result : out std_logic_vector(32 - 1 downto 0);
-		o_overflow : out std_logic
+		o_overflow : out std_logic;
+		o_zero : out std_logic
 	);
 end alu;
 
@@ -46,7 +48,7 @@ architecture structure of alu is
 		);
 	end component;
 	signal barrel_ctrl : std_logic_vector(1 downto 0); -- [0:{logic/arithmetic} 1:{right/left}]
-	signal alu_result,  s_overflow, barrel_shifter_result, s_set : std_logic_vector(32 - 1 downto 0);
+	signal alu_result,  s_overflow, barrel_shifter_result, s_set, s_result : std_logic_vector(32 - 1 downto 0);
 	signal s_carry: std_logic_vector(32 downto 0);
 begin
 	with i_ctrl select barrel_ctrl <= 
@@ -94,8 +96,11 @@ begin
 			o_overflow => s_overflow(i)
 		);
 	end generate;
+	-- zero detect
+	o_zero <= or_reduce(s_result);
+	o_result <= s_result;
 	-- output mux
-	with i_ctrl select o_result <= 
+	with i_ctrl select s_result <= 
 		alu_result when ADD_OP, -- add
 		alu_result when SUB_OP, -- sub
 		alu_result when SLT_OP, -- slt
