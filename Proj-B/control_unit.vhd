@@ -60,7 +60,7 @@ begin
 		"0" & "0" & "0" & "0" & "0" & "0" & ADD_ALU_OP & "1" & "1" when ADDI_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "0" & "0" & ADD_ALU_OP & "1" & "1" when ADDIU_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "0" & "0" & AND_ALU_OP & "1" & "1" when ANDI_MIPS_OP, 
-		"0" & "0" & "0" & "1" & "0" & "1" & ADD_ALU_OP & "1" & "1" when LUI_MIPS_OP, 
+		"0" & "0" & "0" & "1" & "0" & "1" & SLL_ALU_OP & "1" & "1" when LUI_MIPS_OP, 
 		"0" & "0" & "0" & "1" & "0" & "1" & ADD_ALU_OP & "1" & "1" when LW_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "0" & "0" & XOR_ALU_OP & "1" & "1" when XORI_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "0" & "0" & OR_ALU_OP & "1" & "1" when ORI_MIPS_OP, 
