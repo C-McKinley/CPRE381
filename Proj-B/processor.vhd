@@ -82,13 +82,13 @@ architecture structure of processor is
 begin
 	-- control decoder
 	with i_opcode select ctrl_signal <= 
-		"01001" when ADDI_OP, --addi
+		--"01001" when ADDI_ALU_OP, --addi
 		"10001" when LW_OP, --lw
 		"10000" when SW_OP, --sw
-		"01011" when ADD_OP, --add
-		"01001" when SLL_OP, --add
-		"01001" when SRA_OP, --add
-		"01001" when SRL_OP, --add
+		"01011" when ADD_ALU_OP, --add
+		"01001" when SLL_ALU_OP, --add
+		"01001" when SRA_ALU_OP, --add
+		"01001" when SRL_ALU_OP, --add
 		"00000" when others;
 		zextend : zero_extender
 		port map(i_in_16 => i_immediate, o_out_32 => zero_extended_immediate);

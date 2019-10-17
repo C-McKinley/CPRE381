@@ -51,24 +51,24 @@ begin
 	--s_overflow <= (i_a and s_b and (not add_sub_res)) or ((not i_a) and(not s_b) and add_sub_res);
 	o_overflow <= s_overflow;
 	with i_ctrl select addsub <= 
-		'1' when SUB_OP, -- sub
-		'1' when SLT_OP, -- slt
+		'1' when SUB_ALU_OP, -- sub
+		'1' when SLT_ALU_OP, -- slt
 		'0' when others;
 	with i_ctrl select s_carry <= 
-		'1' when SUB_OP, -- sub
-		'1' when SLT_OP, -- slt
-		i_cin when ADD_OP,
+		'1' when SUB_ALU_OP, -- sub
+		'1' when SLT_ALU_OP, -- slt
+		i_cin when ADD_ALU_OP,
 		'0' when others;
 	-- output mux
 	with i_ctrl select o_f <= 
-		add_sub_res when ADD_OP, -- add
-		add_sub_res when SUB_OP, -- sub
-		slt_res when SLT_OP, -- slt
-		and_res when AND_OP, -- and
-		or_res when OR_OP, -- or
-		xor_res when XOR_OP, -- xor
-		nand_res when NAND_OP, -- nand
-		nor_res when NOR_OP, -- nor
+		add_sub_res when ADD_ALU_OP, -- add
+		add_sub_res when SUB_ALU_OP, -- sub
+		slt_res when SLT_ALU_OP, -- slt
+		and_res when AND_ALU_OP, -- and
+		or_res when OR_ALU_OP, -- or
+		xor_res when XOR_ALU_OP, -- xor
+		nand_res when NAND_ALU_OP, -- nand
+		nor_res when NOR_ALU_OP, -- nor
 		'0' when others;
 		o_cout <= s_cout;
 		o_set <= s_overflow xor add_sub_res;

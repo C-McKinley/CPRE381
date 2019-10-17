@@ -52,9 +52,9 @@ architecture structure of alu is
 	signal s_carry: std_logic_vector(32 downto 0);
 begin
 	with i_ctrl select barrel_ctrl <= 
-		"10" when SLL_OP, 
-		"00" when SRL_OP, 
-		"01" when SRA_OP, 
+		"10" when SLL_ALU_OP, 
+		"00" when SRL_ALU_OP, 
+		"01" when SRA_ALU_OP, 
 		"00" when others;
 		shifter : barrel_shifter
 		port map(
@@ -65,9 +65,9 @@ begin
 			o_f => barrel_shifter_result
 	);
 	with i_ctrl select s_carry(0) <= 
-		'1' when SUB_OP, -- sub
-		'1' when SLT_OP, -- slt
-		'0' when ADD_OP,
+		'1' when SUB_ALU_OP, -- sub
+		'1' when SLT_ALU_OP, -- slt
+		'0' when ADD_ALU_OP,
 		'0' when others;
 
 	alu_0 : alu_single_bit
@@ -101,26 +101,26 @@ begin
 	o_result <= s_result;
 	-- output mux
 	with i_ctrl select s_result <= 
-		alu_result when ADD_OP, -- add
-		alu_result when SUB_OP, -- sub
-		alu_result when SLT_OP, -- slt
-		alu_result when AND_OP, -- and
-		alu_result when OR_OP, -- or
-		alu_result when XOR_OP, -- xor
-		alu_result when NAND_OP, -- nand
-		alu_result when NOR_OP, -- nor
-		barrel_shifter_result when SLL_OP, -- sll
-		barrel_shifter_result when SRL_OP, -- srl
-		barrel_shifter_result when SRA_OP, -- sra
+		alu_result when ADD_ALU_OP, -- add
+		alu_result when SUB_ALU_OP, -- sub
+		alu_result when SLT_ALU_OP, -- slt
+		alu_result when AND_ALU_OP, -- and
+		alu_result when OR_ALU_OP, -- or
+		alu_result when XOR_ALU_OP, -- xor
+		alu_result when NAND_ALU_OP, -- nand
+		alu_result when NOR_ALU_OP, -- nor
+		barrel_shifter_result when SLL_ALU_OP, -- sll
+		barrel_shifter_result when SRL_ALU_OP, -- srl
+		barrel_shifter_result when SRA_ALU_OP, -- sra
 		x"00000000" when others;
 	with i_ctrl select o_overflow <= 
-		s_overflow(31) when ADD_OP, -- add
-		s_overflow(31) when SUB_OP, -- sub
-		s_overflow(31) when SLT_OP, -- slt
-		s_overflow(31) when AND_OP, -- and
-		s_overflow(31) when OR_OP, -- or
-		s_overflow(31) when XOR_OP, -- xor
-		s_overflow(31) when NAND_OP, -- nand
-		s_overflow(31) when NOR_OP, -- nor
+		s_overflow(31) when ADD_ALU_OP, -- add
+		s_overflow(31) when SUB_ALU_OP, -- sub
+		s_overflow(31) when SLT_ALU_OP, -- slt
+		s_overflow(31) when AND_ALU_OP, -- and
+		s_overflow(31) when OR_ALU_OP, -- or
+		s_overflow(31) when XOR_ALU_OP, -- xor
+		s_overflow(31) when NAND_ALU_OP, -- nand
+		s_overflow(31) when NOR_ALU_OP, -- nor
 		'0' when others;
 end structure;

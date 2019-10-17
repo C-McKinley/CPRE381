@@ -64,7 +64,7 @@ begin
 	P_TB : process
 	begin
 	--add
-	s_i_ctrl <= ADD_OP;
+	s_i_ctrl <= ADD_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
@@ -85,7 +85,7 @@ begin
 
 	--sub
 	-- CM I feel like overflow doesnt matter for this... if it does we need to do the math ourselves.
-	s_i_ctrl <= SUB_OP;
+	s_i_ctrl <= SUB_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
@@ -118,7 +118,7 @@ begin
 
 	--slt
 	
-	s_i_ctrl <= SLT_OP;
+	s_i_ctrl <= SLT_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
@@ -161,7 +161,7 @@ begin
 
 	--nor
 	--0nor0
-	s_i_ctrl <= NOR_OP;
+	s_i_ctrl <= NOR_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
@@ -179,7 +179,7 @@ begin
 
 	--nand
 	--0nand0
-	s_i_ctrl <= NAND_OP;
+	s_i_ctrl <= NAND_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
@@ -197,7 +197,7 @@ begin
 
 	--xor
 	--0xor0
-	s_i_ctrl <= XOR_OP;
+	s_i_ctrl <= XOR_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
@@ -215,7 +215,7 @@ begin
 
 	--or
 	--0or0
-	s_i_ctrl <= OR_OP;
+	s_i_ctrl <= OR_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
@@ -238,19 +238,19 @@ begin
 
 	--and
 	--0and0
-	s_i_ctrl <= AND_OP;
+	s_i_ctrl <= AND_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"00000000";
 	wait for gCLK_HPER;
 	assert s_o_f = x"00000000" report "1_and" severity warning;
 	--0and1
-	s_i_ctrl <= AND_OP;
+	s_i_ctrl <= AND_ALU_OP;
 	s_i_a <= x"00000000";
 	s_i_b <= x"FFFFFFFF";
 	wait for gCLK_HPER;
 	assert s_o_f = x"00000000" report "2_and" severity warning;
 	--1and1
-	s_i_ctrl <= AND_OP;
+	s_i_ctrl <= AND_ALU_OP;
 	s_i_a <= x"FFFFFFFF";
 	s_i_b <= x"FFFFFFFF";
 	wait for gCLK_HPER;

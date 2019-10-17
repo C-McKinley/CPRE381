@@ -28,7 +28,7 @@ package opcode_t is
 	constant SLLV_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001011";
 	constant SRLV_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001100";
 	constant SRAV_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001101";
-	constant STLU_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001110";
+	constant SLTU_ALU_OP : std_logic_vector(6 - 1 downto 0) := "001110";
 	constant NO_ALU_OP : std_logic_vector(6 - 1 downto 0) := "111111";
 
 	-- Do not believe I need these
