@@ -64,7 +64,7 @@ begin
 		add_sub_res when ADD_ALU_OP, -- add
 		add_sub_res when SUB_ALU_OP, -- sub
 		slt_res when SLT_ALU_OP, -- slt
-		slt_res when SLTU_ALU_OP
+		slt_res when SLTU_ALU_OP,
 		and_res when AND_ALU_OP, -- and
 		or_res when OR_ALU_OP, -- or
 		xor_res when XOR_ALU_OP, -- xor
