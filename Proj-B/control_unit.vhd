@@ -73,12 +73,13 @@ begin
 		"0" & "0" & "0" & "0" & "0" & "0" & NO_ALU_OP & "1" & "1" when JAL_MIPS_OP, 
 		"00000000000000" when others;
 	-- drive outputs
-	o_reg_dst <= s_control(0);
-	o_jump <= s_control(1);
-	o_branch <= s_control(2);
-	o_mem_read <= s_control(3);
-	o_mem_write <= s_control(4);
-	o_alu_op <= s_control(11 downto 6);
-	o_alu_src <= s_control(12);
-	o_reg_write <= s_control(13);
+	o_reg_dst <= s_control(13);
+	o_jump <= s_control(12);
+	o_branch <= s_control(11);
+	o_mem_read <= s_control(10);
+	o_mem_write <= s_control(9);
+	o_mem_to_reg <= s_control(8);
+	o_alu_op <= s_control(7 downto 2);
+	o_alu_src <= s_control(1);
+	o_reg_write <= s_control(0);
 end structure;

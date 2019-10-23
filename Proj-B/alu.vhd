@@ -9,7 +9,7 @@
 -------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
-use ieee.std_logic_misc.or_reduce;
+use ieee.std_logic_misc.nor_reduce;
 use work.opcode_t.all;
 
 entity alu is
@@ -47,6 +47,10 @@ architecture structure of alu is
 			o_f : out std_logic_vector(32 - 1 downto 0)
 		);
 	end component;
+	component invg is
+		port(i_A          : in std_logic;
+		     o_F          : out std_logic);
+	end component;
 	signal barrel_ctrl : std_logic_vector(1 downto 0); -- [0:{logic/arithmetic} 1:{right/left}]
 	signal alu_result,  s_overflow, barrel_shifter_result, s_set, s_result : std_logic_vector(32 - 1 downto 0);
 	signal s_carry: std_logic_vector(32 downto 0);
@@ -55,19 +59,22 @@ begin
 		"10" when SLL_ALU_OP, 
 		"00" when SRL_ALU_OP, 
 		"01" when SRA_ALU_OP, 
+		"10" when SLLV_ALU_OP,
+		"00" when SRLV_ALU_OP,
+		"01" when SRAV_ALU_OP,
 		"00" when others;
-		shifter : barrel_shifter
+	shifter : barrel_shifter
 		port map(
 			i_data => i_a, 
 			i_shift => i_b (5 - 1 downto 0), 
 			i_la => barrel_ctrl(0), 
 			i_rl => barrel_ctrl(1), 
 			o_f => barrel_shifter_result
-	);
+		);
 	with i_ctrl select s_carry(0) <= 
 		'1' when SUB_ALU_OP, -- sub
 		'1' when SLT_ALU_OP, -- slt
-		'0' when ADD_ALU_OP,
+		'1' when SLTU_ALU_OP, -- slt
 		'0' when others;
 
 	alu_0 : alu_single_bit
@@ -97,8 +104,9 @@ begin
 		);
 	end generate;
 	-- zero detect
-	o_zero <= or_reduce(s_result);
+	o_zero <= nor_reduce(s_result);
 	o_result <= s_result;
+	o_overflow <= s_overflow(31);
 	-- output mux
 	with i_ctrl select s_result <= 
 		alu_result when ADD_ALU_OP, -- add
@@ -109,18 +117,12 @@ begin
 		alu_result when XOR_ALU_OP, -- xor
 		alu_result when NAND_ALU_OP, -- nand
 		alu_result when NOR_ALU_OP, -- nor
+		alu_result when SLTU_ALU_OP, -- sltu
+		barrel_shifter_result when SLLV_ALU_OP, -- sllv
+		barrel_shifter_result when SRLV_ALU_OP, -- srlv
+		barrel_shifter_result when SRAV_ALU_OP, -- srav
 		barrel_shifter_result when SLL_ALU_OP, -- sll
 		barrel_shifter_result when SRL_ALU_OP, -- srl
 		barrel_shifter_result when SRA_ALU_OP, -- sra
 		x"00000000" when others;
-	with i_ctrl select o_overflow <= 
-		s_overflow(31) when ADD_ALU_OP, -- add
-		s_overflow(31) when SUB_ALU_OP, -- sub
-		s_overflow(31) when SLT_ALU_OP, -- slt
-		s_overflow(31) when AND_ALU_OP, -- and
-		s_overflow(31) when OR_ALU_OP, -- or
-		s_overflow(31) when XOR_ALU_OP, -- xor
-		s_overflow(31) when NAND_ALU_OP, -- nand
-		s_overflow(31) when NOR_ALU_OP, -- nor
-		'0' when others;
 end structure;

@@ -64,6 +64,7 @@ begin
 		add_sub_res when ADD_ALU_OP, -- add
 		add_sub_res when SUB_ALU_OP, -- sub
 		slt_res when SLT_ALU_OP, -- slt
+		slt_res when SLTU_ALU_OP
 		and_res when AND_ALU_OP, -- and
 		or_res when OR_ALU_OP, -- or
 		xor_res when XOR_ALU_OP, -- xor
@@ -71,7 +72,10 @@ begin
 		nor_res when NOR_ALU_OP, -- nor
 		'0' when others;
 		o_cout <= s_cout;
-		o_set <= s_overflow xor add_sub_res;
+	with i_ctrl select o_set <= 
+		s_overflow xor add_sub_res when SLT_ALU_OP,
+		not s_cout when SLTU_ALU_OP,
+		'0' when others;
 		--o_set  <=  add_sub_res;
 		-- full adder
 		adder : full_adder_structure

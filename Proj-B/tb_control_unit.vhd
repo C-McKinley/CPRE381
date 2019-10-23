@@ -174,7 +174,7 @@ begin
 		assert s_branch = '0' report "sltu_branch" severity warning;
 		assert s_mem_read = '0' report "sltu_mem_read" severity warning;
 		assert s_mem_to_reg = '0' report "sltu_mem_to_reg" severity warning;
-		assert s_alu_op = SLT_ALU_OP report "sltu_alu_op" severity warning;
+		assert s_alu_op = SLTU_ALU_OP report "sltu_alu_op" severity warning;
 		assert s_mem_write = '0' report "sltu_mem_write" severity warning;
 		assert s_alu_src = '0' report "sltu_alu_src" severity warning;
 		assert s_reg_write = '1' report "sltu_reg_write" severity warning;
@@ -286,7 +286,7 @@ begin
 		s_opcode <= MIPS_R_OP;
 		s_funct <= JR_MIPS_FUNC;
 		wait for gCLK_HPER;
-		assert s_reg_dst = '1' report "jr_reg_dst" severity warning;
+		assert s_reg_dst = '0' report "jr_reg_dst" severity warning;
 		assert s_jump = '0' report "jr_jump" severity warning;
 		assert s_branch = '0' report "jr_branch" severity warning;
 		assert s_mem_read = '0' report "jr_mem_read" severity warning;
