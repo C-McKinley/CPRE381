@@ -1,5 +1,5 @@
 Model Technology ModelSim DE-64 vcom 10.7b Compiler 2018.06 Jun  8 2018
-Start time: 18:27:29 on Oct 23,2019
+Start time: 18:32:47 on Oct 23,2019
 vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -13,7 +13,32 @@ vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd
 -- Compiling architecture structure of alu
 -- Compiling entity alu_single_bit
 -- Compiling architecture mixed of alu_single_bit
-** Error: ModelSimWork/src/alu_single_bit.vhd(68): near "and_res": (vcom-1576) expecting ';' or ','.
-** Note: ModelSimWork/src/alu_single_bit.vhd(96): VHDL Compiler exiting
-End time: 18:27:29 on Oct 23,2019, Elapsed time: 0:00:00
-Errors: 1, Warnings: 0
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity barrel_shifter
+-- Compiling architecture structure of barrel_shifter
+-- Compiling entity control_unit
+-- Compiling architecture structure of control_unit
+-- Compiling entity decoder_5_to_32
+-- Compiling architecture structure of decoder_5_to_32
+-- Compiling entity dff
+-- Compiling architecture mixed of dff
+-- Compiling entity full_adder_dataflow_generic
+-- Compiling architecture dataflow of full_adder_dataflow_generic
+-- Compiling entity full_adder_structure
+-- Compiling architecture structure of full_adder_structure
+-- Compiling entity full_adder_structure_generic
+-- Compiling architecture structure of full_adder_structure_generic
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+-- Loading package NUMERIC_STD
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+-- Compiling entity MIPS_Processor
+-- Compiling architecture structure of MIPS_Processor
+** Error (suppressible): ModelSimWork/src/MIPS_Processor.vhd(230): (vcom-1272) Length of formal "o_result" is 32; length of slice name is 4.
+** Error (suppressible): ModelSimWork/src/MIPS_Processor.vhd(233): (vcom-1272) Length of formal "i_data" is 32; length of slice name is 26.
+** Error (suppressible): ModelSimWork/src/MIPS_Processor.vhd(233): (vcom-1272) Length of formal "o_f" is 32; length of slice name is 28.
+** Note: ModelSimWork/src/MIPS_Processor.vhd(236): VHDL Compiler exiting
+End time: 18:32:48 on Oct 23,2019, Elapsed time: 0:00:01
+Errors: 3, Warnings: 0

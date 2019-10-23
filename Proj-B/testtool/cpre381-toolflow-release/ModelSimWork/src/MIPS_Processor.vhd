@@ -225,12 +225,42 @@ begin
 	oALUOut <= alu_result;
 
 	-- branch and jumps
-	branch_shift : barrel_shifter port map (i_data => extended_immediate, i_shift => "00010", i_la => '0', i_rl => '1', o_f => branch_shift_res);
-	branch_adder : alu port map(i_ctrl => ADD_ALU_OP, i_a => pc_add, i_b => branch_shift_res, o_result => branch_add, o_overflow => open, o_zero => open);
-	pc_adder : alu port map(i_ctrl => ADD_ALU_OP, i_a => pc_val, i_b => x"00000004", o_result => jump_address(31 downto 28), o_overflow => open, o_zero => open);
-	br_and : andg2 port map(i_A => s_branch, i_B => s_zero, o_F => pc_mux1_sel);
-	with pc_mux1_sel select pc_mux1_res <= pc_add when '0', branch_add when others;
-	jmp_shift : barrel_shifter port map (i_data => s_Inst(26 -1 downto 0), i_shift => "00010", i_la => '0', i_rl => '1', o_f => jump_address(28 - 1 downto 0));
-	with pc_mux2_sel select pc_val <= pc_mux1_res when '0', jump_address when others;
+	branch_shift : barrel_shifter port map( i_data  => extended_immediate, 
+						i_shift => "00010", i_la => '0', 
+						i_rl 	=> '1', 
+						o_f 	=> branch_shift_res);
+
+	branch_adder : alu port map (i_ctrl => ADD_ALU_OP, 
+					i_a => pc_add, 
+					i_b => branch_shift_res, 
+				   o_result => branch_add, 
+				 o_overflow => open, 
+				     o_zero => open);
+
+	pc_adder : alu port map(i_ctrl => ADD_ALU_OP,
+				   i_a => pc_val, 
+				   i_b => x"00000004", 
+			      o_result => jump_address(31 downto 28), 
+			    o_overflow => open, 
+				o_zero => open);
+
+	br_and : andg2 port map(i_A => s_branch, 
+				i_B => s_zero, 
+				o_F => pc_mux1_sel);
+
+	with pc_mux1_sel 
+	select pc_mux1_res <= pc_add when '0', 
+	branch_add when others;
+
+
+	jmp_shift : barrel_shifter port map(i_data => s_Inst(26 -1 downto 0), 
+					   i_shift => "00010", 
+					      i_la => '0', 
+					      i_rl => '1', 
+					       o_f => jump_address(28 - 1 downto 0));
+
+	with pc_mux2_sel 
+	select pc_val <= pc_mux1_res when '0', 
+	jump_address when others;
 	
 end structure;
