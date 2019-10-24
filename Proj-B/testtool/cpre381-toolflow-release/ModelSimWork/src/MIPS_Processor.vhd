@@ -194,8 +194,8 @@ begin
 	s_Halt <= '1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") and (v0 = "00000000000000000000000000001010") else '0';
 
 	-- TODO: Implement the rest of your processor below this comment!
-	zextend : zero_extender port map(i_in_16 => s_immediate, o_out_32 => zero_extended_immediate);
-	sextend : sign_extender port map(i_in_16 => s_immediate, o_out_32 => sign_extended_immediate);
+	zextend : zero_extender port map(i_in_16 => s_Inst(15 downto 0), o_out_32 => zero_extended_immediate);
+	sextend : sign_extender port map(i_in_16 => s_Inst(15 downto 0), o_out_32 => sign_extended_immediate);
 	-- extender
 	with s_unsigned select extended_immediate <= sign_extended_immediate when '0', zero_extended_immediate when others;
 	-- write_data mux
@@ -220,6 +220,7 @@ begin
 		o_reg_write => s_RegWr
 	);
 
+	-- think about s_RegWrData 
 	reg_file : register_file
 	port map(
 		i_clk => iCLK, i_write_en => s_RegWr, i_rst => iRST, i_write_data => s_RegWrData,
@@ -228,7 +229,7 @@ begin
 	);
 	alu_compute : alu port map(i_ctrl => s_alu_opcode, i_a => data_a, i_b => sel_data_b, o_result => alu_result, o_overflow => s_overflow, o_zero => s_zero);
 	-- making it byte to word addressable by shifting by 2
-	s_DMemAddr <= alu_result(11 downto 2);
+	-- s_DMemAddr <= alu_result(11 downto 2);
 	oALUOut <= alu_result;
 
 	pc_register : n_bit_register port map(
