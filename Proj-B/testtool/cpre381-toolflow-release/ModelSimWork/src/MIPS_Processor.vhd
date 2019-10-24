@@ -164,7 +164,6 @@ architecture structure of MIPS_Processor is
 	signal data_a, data_b, sel_data_b, zero_extended_immediate, sign_extended_immediate, extended_immediate, alu_result : std_logic_vector(32 - 1 downto 0);
 	signal branch_add, branch_and, pc_add, pc_mux1_res, branch_shift_res, jump_address, pc_val, pc_next : std_logic_vector(32 - 1 downto 0);
 	signal pc_mux1_sel, pc_mux2_sel : std_logic;
-	signal s_immediate : std_logic_vector(16 - 1 downto 0);
 
 begin
 	-- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -201,7 +200,7 @@ begin
 	-- write_data mux
 	with s_mem_to_reg select s_RegWrData <= s_DMemOut when '0', alu_result when others;
 	-- imm mux
-	with s_alu_src select sel_data_b <= extended_immediate when '0', data_b when others;
+	with s_alu_src select sel_data_b <= extended_immediate when '1', data_b when others;
 	-- destination select 
 	with s_reg_dst select s_RegWrAddr <= s_Inst(20 downto 16) when '0', s_Inst(15 downto 11) when others;
 	--control module
