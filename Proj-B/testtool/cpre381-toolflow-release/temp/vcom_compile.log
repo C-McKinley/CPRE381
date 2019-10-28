@@ -1,5 +1,5 @@
 Model Technology ModelSim DE-64 vcom 10.7b Compiler 2018.06 Jun  8 2018
-Start time: 18:32:47 on Oct 23,2019
+Start time: 10:03:21 on Oct 28,2019
 vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -36,9 +36,44 @@ vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd
 -- Compiling architecture rtl of mem
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
-** Error (suppressible): ModelSimWork/src/MIPS_Processor.vhd(230): (vcom-1272) Length of formal "o_result" is 32; length of slice name is 4.
-** Error (suppressible): ModelSimWork/src/MIPS_Processor.vhd(233): (vcom-1272) Length of formal "i_data" is 32; length of slice name is 26.
-** Error (suppressible): ModelSimWork/src/MIPS_Processor.vhd(233): (vcom-1272) Length of formal "o_f" is 32; length of slice name is 28.
-** Note: ModelSimWork/src/MIPS_Processor.vhd(236): VHDL Compiler exiting
-End time: 18:32:48 on Oct 23,2019, Elapsed time: 0:00:01
-Errors: 3, Warnings: 0
+-- Compiling entity mux2_dataflow_generic
+-- Compiling architecture dataflow of mux2_dataflow_generic
+-- Compiling entity mux2_structure
+-- Compiling architecture structure of mux2_structure
+-- Compiling entity mux2_structure_generic
+-- Compiling architecture structure of mux2_structure_generic
+-- Loading package register_array_t
+-- Compiling entity mux_32_1
+-- Compiling architecture dataflow of mux_32_1
+-- Compiling entity n_bit_register
+-- Compiling architecture structure of n_bit_register
+-- Compiling entity ones_complimenter_dataflow
+-- Compiling architecture dataflow of ones_complimenter_dataflow
+-- Compiling entity ones_complimenter_structure
+-- Compiling architecture structure of ones_complimenter_structure
+-- Compiling package opcode_t
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Loading package opcode_t
+-- Compiling entity processor
+-- Compiling architecture structure of processor
+-- Compiling package register_array_t
+-- Loading package register_array_t
+-- Compiling entity register_file
+-- Compiling architecture structure of register_file
+-- Compiling entity sign_extender
+-- Compiling architecture dataflow of sign_extender
+-- Compiling entity tb_alu
+-- Compiling architecture behavior of tb_alu
+-- Compiling entity tb_control_unit
+-- Compiling architecture behavior of tb_control_unit
+-- Loading package std_logic_textio
+-- Loading package ENV
+-- Compiling entity tb_SimplifiedMIPSProcessor
+-- Compiling architecture mixed of tb_SimplifiedMIPSProcessor
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+-- Compiling entity zero_extender
+-- Compiling architecture dataflow of zero_extender
+End time: 10:03:22 on Oct 28,2019, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0

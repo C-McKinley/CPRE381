@@ -18,5 +18,5 @@ addi  $8,  $0,  8		# Place “8” in $8
 addi  $9,  $0,  9		# Place “9” in $9
 addi  $10, $0,  10		# Place “10” in $10
 
-addi  $2,  $0,  10              # Place "10" in $v0 to signal an "exit" or "halt"
+addi  $2,  $0,  10             # Place "10" in $v0 to signal an "exit" or "halt"
 syscall                         # Actually cause the halt

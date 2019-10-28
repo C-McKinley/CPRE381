@@ -55,7 +55,7 @@ begin
 		"00000000000000" when others;
 	with i_opcode select s_control <= 
 	--	 0     1     2     3     4     5    6:11         12    13
-	--  RGDT  JMP   BR    MRd   MW    MRg   ALU_CTRL     ASRC  RW
+	--  	RGDT  JMP   BR    MRd   MW    MRg   ALU_CTRL     ASRC  RW
 		s_funct_ctrl when MIPS_R_OP,
 		"0" & "0" & "0" & "0" & "0" & "0" & ADD_ALU_OP & "1" & "1" when ADDI_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "0" & "0" & ADD_ALU_OP & "1" & "1" when ADDIU_MIPS_OP, 
@@ -67,9 +67,9 @@ begin
 		"0" & "0" & "0" & "0" & "0" & "0" & SLT_ALU_OP & "1" & "1" when SLTI_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "0" & "0" & SLTU_ALU_OP & "1" & "1" when SLTIU_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "1" & "0" & ADD_ALU_OP & "1" & "0" when SW_MIPS_OP, 
-		"0" & "0" & "0" & "0" & "0" & "0" & NO_ALU_OP & "1" & "1" when BEQ_MIPS_OP, 
-		"0" & "0" & "0" & "0" & "0" & "0" & NO_ALU_OP & "1" & "1" when BNE_MIPS_OP, 
-		"0" & "0" & "0" & "0" & "0" & "0" & NO_ALU_OP & "1" & "1" when J_MIPS_OP, 
+		"0" & "0" & "1" & "0" & "0" & "0" & SUB_ALU_OP & "0" & "0" when BEQ_MIPS_OP, 
+		"0" & "0" & "1" & "0" & "0" & "0" & SUB_ALU_OP & "0" & "0" when BNE_MIPS_OP, 
+		"0" & "1" & "0" & "0" & "0" & "0" & NO_ALU_OP & "0" & "0" when J_MIPS_OP, 
 		"0" & "0" & "0" & "0" & "0" & "0" & NO_ALU_OP & "1" & "1" when JAL_MIPS_OP, 
 		"00000000000000" when others;
 	-- drive outputs

@@ -91,16 +91,17 @@ architecture structure of MIPS_Processor is
 	end component;
 
 	component register_file is
-		port (
-			i_clk : in std_logic; -- Clock input
-			i_write_en : in std_logic; -- Write enable input
-			i_rst : in std_logic;
-			i_write_data : in std_logic_vector(32 - 1 downto 0); -- Write data
-			i_write_addr : in std_logic_vector(5 - 1 downto 0); -- Write address
-			i_read_a_addr : in std_logic_vector(5 - 1 downto 0); -- Read address A
-			i_read_b_addr : in std_logic_vector(5 - 1 downto 0); -- Read address B
-			o_data_a : out std_logic_vector(32 - 1 downto 0); -- Data output A
-			o_data_b : out std_logic_vector(32 - 1 downto 0)); -- Data output B
+port(i_clk : in std_logic;     -- Clock input
+       i_write_en : in std_logic;     -- Write enable input
+	i_rst : in std_logic;
+       i_write_data  : in std_logic_vector(32-1 downto 0);     -- Write data
+       i_rd  : in std_logic_vector(5-1 downto 0);     -- Write address
+	   i_rs  : in std_logic_vector(5-1 downto 0);     -- Read address A
+	   i_rt  : in std_logic_vector(5-1 downto 0);     -- Read address B
+       o_data_a : out std_logic_vector(32-1 downto 0);	-- Data output A
+	   o_data_b : out std_logic_vector(32-1 downto 0); -- Data output B
+	   o_v0 : out std_logic_vector(32-1 downto 0)
+	   );   
 	end component;
 	component mux2_structure
 		port (
@@ -157,13 +158,13 @@ architecture structure of MIPS_Processor is
 	end component;
 
 	signal s_alu_opcode : std_logic_vector(6 - 1 downto 0);
-	signal s_reg_dst, s_jump, s_branch, s_mem_read, s_mem_to_reg, s_mem_write, s_alu_src, pc_write : std_logic;
+	signal s_reg_dst, s_jump, s_branch, s_mem_read, s_mem_to_reg, s_alu_src, pc_write : std_logic;
 	signal s_unsigned, s_zero : std_logic;
-	signal s_rd, s_rs, s_rt : std_logic_vector (5 - 1 downto 0);
+	signal s_rs, s_rt : std_logic_vector (5 - 1 downto 0);
 	signal s_overflow : std_logic;
 	signal data_a, data_b, sel_data_b, zero_extended_immediate, sign_extended_immediate, extended_immediate, alu_result : std_logic_vector(32 - 1 downto 0);
-	signal branch_add, branch_and, pc_add, pc_mux1_res, branch_shift_res, jump_address, pc_val, pc_next : std_logic_vector(32 - 1 downto 0);
-	signal pc_mux1_sel, pc_mux2_sel : std_logic;
+	signal branch_add, pc_add, pc_mux1_res, branch_shift_res, jump_address, pc_val, pc_next : std_logic_vector(32 - 1 downto 0);
+	signal pc_mux1_sel : std_logic;
 
 begin
 	-- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -198,11 +199,13 @@ begin
 	-- extender
 	with s_unsigned select extended_immediate <= sign_extended_immediate when '0', zero_extended_immediate when others;
 	-- write_data mux
-	with s_mem_to_reg select s_RegWrData <= s_DMemOut when '0', alu_result when others;
+	with s_mem_to_reg select s_RegWrData <= s_DMemOut when '1', alu_result when others;
 	-- imm mux
 	with s_alu_src select sel_data_b <= extended_immediate when '1', data_b when others;
 	-- destination select 
 	with s_reg_dst select s_RegWrAddr <= s_Inst(20 downto 16) when '0', s_Inst(15 downto 11) when others;
+	s_rs <= s_Inst(25 downto 21);
+	s_rt <= s_Inst(20 downto 16);
 	--control module
 	ctrl_unit : control_unit
 	port map(
@@ -223,29 +226,28 @@ begin
 	reg_file : register_file
 	port map(
 		i_clk => iCLK, i_write_en => s_RegWr, i_rst => iRST, i_write_data => s_RegWrData,
-		i_write_addr => s_RegWrAddr, i_read_a_addr => s_Inst(25 downto 21), i_read_b_addr => s_Inst(20 downto 16),
-		o_data_a => data_a, o_data_b => data_b
+		i_rd => s_RegWrAddr, i_rs => s_rs, i_rt => s_rt,
+		o_data_a => data_a, o_data_b => data_b, o_v0 =>v0
 	);
 	alu_compute : alu port map(i_ctrl => s_alu_opcode, i_a => data_a, i_b => sel_data_b, o_result => alu_result, o_overflow => s_overflow, o_zero => s_zero);
 	-- making it byte to word addressable by shifting by 2
 	-- s_DMemAddr <= alu_result(11 downto 2);
 	oALUOut <= alu_result;
-
 	pc_register : n_bit_register port map(
 		i_clk => iCLK,
 		i_rst => iRST,
-		i_we => pc_write,
-		i_in => pc_val,
-		o_out => pc_val);
+		i_we => '1',
+		i_in => pc_next,
+		o_out => s_NextInstAddr);
 
 	-- branch and jumps
 	branch_shift_res <= extended_immediate(31 - 2 downto 0) & "00";
-	jump_address <= pc_next(31 downto 28) & s_Inst(26 - 1 downto 0) & "00";
-	branch_adder : alu port map(i_ctrl => ADD_ALU_OP, i_a => pc_add, i_b => branch_shift_res, o_result => branch_add, o_overflow => open, o_zero => open);
-	pc_adder : alu port map(i_ctrl => ADD_ALU_OP, i_a => pc_val, i_b => x"00000004", o_result => pc_next, o_overflow => open, o_zero => open);
+	jump_address <= pc_add(31 downto 28) & s_Inst(26 - 1 downto 0) & "00";
+	branch_adder : alu port map(i_ctrl => ADD_ALU_OP, i_a => s_NextInstAddr, i_b => branch_shift_res, o_result => branch_add, o_overflow => open, o_zero => open);
+	pc_adder : alu port map(i_ctrl => ADD_ALU_OP, i_a => s_IMemAddr, i_b => x"00000004", o_result => pc_add, o_overflow => open, o_zero => open);
 	br_and : andg2 port map(i_A => s_branch, i_B => s_zero, o_F => pc_mux1_sel);
 	with pc_mux1_sel select pc_mux1_res <= pc_add when '0', branch_add when others;
 
-	with pc_mux2_sel select pc_val <= pc_mux1_res when '0', jump_address when others;
+	with s_jump select pc_next <= pc_mux1_res when '0', jump_address when others;
 
 end structure;
