@@ -17,6 +17,7 @@ entity alu is
 		i_ctrl : in std_logic_vector(6 - 1 downto 0); -- ctrl format [0:{add} 1:{sub} 2:{slt} 3:{and} 4:{or} 5:{xor} 6:{nand} 7:{nor}]
 		i_a : in std_logic_vector(32 - 1 downto 0);
 		i_b : in std_logic_vector(32 - 1 downto 0);
+		i_shamt : in std_logic_vector(5 - 1 downto 0);
 		o_result : out std_logic_vector(32 - 1 downto 0);
 		o_overflow : out std_logic;
 		o_zero : out std_logic
@@ -65,8 +66,8 @@ begin
 		"00" when others;
 	shifter : barrel_shifter
 		port map(
-			i_data => i_a, 
-			i_shift => i_b (5 - 1 downto 0), 
+			i_data => i_b, 
+			i_shift => i_shamt, 
 			i_la => barrel_ctrl(0), 
 			i_rl => barrel_ctrl(1), 
 			o_f => barrel_shifter_result
