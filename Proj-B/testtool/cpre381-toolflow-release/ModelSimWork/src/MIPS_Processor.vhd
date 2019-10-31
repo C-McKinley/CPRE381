@@ -96,17 +96,18 @@ architecture structure of MIPS_Processor is
 	end component;
 
 	component register_file is
-port(i_clk : in std_logic;     -- Clock input
-       i_write_en : in std_logic;     -- Write enable input
-	i_rst : in std_logic;
-       i_write_data  : in std_logic_vector(32-1 downto 0);     -- Write data
-       i_rd  : in std_logic_vector(5-1 downto 0);     -- Write address
-	   i_rs  : in std_logic_vector(5-1 downto 0);     -- Read address A
-	   i_rt  : in std_logic_vector(5-1 downto 0);     -- Read address B
-       o_data_a : out std_logic_vector(32-1 downto 0);	-- Data output A
-	   o_data_b : out std_logic_vector(32-1 downto 0); -- Data output B
-	   o_v0 : out std_logic_vector(32-1 downto 0)
-	   );   
+		port(
+			i_clk : in std_logic;     -- Clock input
+       			i_write_en : in std_logic;     -- Write enable input
+			i_rst : in std_logic;
+       			i_write_data  : in std_logic_vector(32-1 downto 0);     -- Write data
+       			i_rd  : in std_logic_vector(5-1 downto 0);     -- Write address
+	  		i_rs  : in std_logic_vector(5-1 downto 0);     -- Read address A
+	   		i_rt  : in std_logic_vector(5-1 downto 0);     -- Read address B
+       			o_data_a : out std_logic_vector(32-1 downto 0);	-- Data output A
+	   		o_data_b : out std_logic_vector(32-1 downto 0); -- Data output B
+	   		o_v0 : out std_logic_vector(32-1 downto 0)
+	   	);   
 	end component;
 	component mux2_structure
 		port (

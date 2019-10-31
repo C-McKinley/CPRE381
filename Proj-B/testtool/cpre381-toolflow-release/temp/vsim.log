@@ -60,6 +60,8 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 6  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 14  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
 
 ** Fatal: vish lost connection to vsim process.
 ** Fatal: Exiting VSIM license process.
