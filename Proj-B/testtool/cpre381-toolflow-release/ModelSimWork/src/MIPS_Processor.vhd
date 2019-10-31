@@ -78,7 +78,10 @@ architecture structure of MIPS_Processor is
 			o_alu_src : out std_logic;
 			o_reg_write : out std_logic;
 			o_sign_ext : out std_logic;
-			o_LUI : out std_logic
+			o_lui : out std_logic;
+			o_bne : out std_logic;
+			o_jal : out std_logic;
+			o_jr : out std_logic
 		);
 	end component;
 	component sign_extender is
@@ -166,14 +169,19 @@ component full_adder_structure_generic is
        o_S  : out std_logic_vector(32-1 downto 0);
        o_C  : out std_logic);
 end component;
+component invg is
+  port(i_A          : in std_logic;
+       o_F          : out std_logic);
+end component;
 
 	signal s_alu_opcode : std_logic_vector(6 - 1 downto 0);
+	signal s_reg_addr_sel, s_reg_data_sel, s_pc_sel : std_logic_vector(2 - 1 downto 0);
 	signal s_reg_dst, s_jump, s_branch, s_mem_read, s_mem_to_reg, s_alu_src, pc_write : std_logic;
-	signal s_unsigned, s_zero, s_lui : std_logic;
-	signal s_rs, s_rt, s_rd, s_shamt : std_logic_vector (5 - 1 downto 0);
+	signal s_unsigned, s_zero, s_not_zero, s_compare_branch_equality, s_lui, s_bne, s_jal, s_jr : std_logic;
+	signal s_rs, s_rt, s_rd, s_shamt: std_logic_vector (5 - 1 downto 0);
 	signal s_overflow : std_logic;
-	signal data_a, data_b, sel_data_b, zero_extended_immediate, sign_extended_immediate, extended_immediate, alu_result : std_logic_vector(32 - 1 downto 0);
-	signal branch_add, pc_add, pc_mux1_res, branch_shift_res, jump_address, pc_val, pc_next : std_logic_vector(32 - 1 downto 0);
+	signal data_a, data_b, sel_data_b, zero_extended_immediate, sign_extended_immediate, extended_immediate, alu_result, return_reg_add : std_logic_vector(32 - 1 downto 0);
+	signal branch_add, pc_mux1_res, branch_shift_res, jump_address, pc_val, pc_next, temp_pc_addr : std_logic_vector(32 - 1 downto 0);
 	signal pc_mux1_sel : std_logic;
 
 begin
@@ -209,17 +217,36 @@ begin
 	-- extender
 	with s_unsigned select extended_immediate <= sign_extended_immediate when '0', zero_extended_immediate when others;
 	-- write_data mux
-	with s_mem_to_reg select s_RegWrData <= s_DMemOut when '1', alu_result when others;
+	-- with s_mem_to_reg select s_reg_write_data <= s_DMemOut when '1', alu_result when others;
+	-- jal/write_data mux 
+	s_reg_data_sel(1) <= s_jal;
+	s_reg_data_sel(0) <= s_mem_to_reg;
+	with s_reg_data_sel select s_RegWrData <= 
+		return_reg_add when "11", 
+		return_reg_add when "10",
+		s_DMemOut when "01",
+		alu_result when "00",
+		x"00000000" when others;
 	-- imm mux
 	with s_alu_src select sel_data_b <= extended_immediate when '1', data_b when others;
 	with s_lui select s_shamt <= "10000" when '1', s_Inst(10 downto 6) when others;
+	not_zero: invg port map(i_A => s_zero, o_F => s_not_zero);
+	with s_bne select s_compare_branch_equality <= s_not_zero when '1', s_zero when others;
 	-- band-aid knee slapper right here
 	--with s_lui select data_a <= extended_immediate when '1', data_a when others;
 	s_rd <= s_Inst(15 downto 11);
 	s_rs <= s_Inst(25 downto 21);
 	s_rt <= s_Inst(20 downto 16);
 	-- destination select 
-	with s_reg_dst select s_RegWrAddr <= s_rt when '0', s_rd when others;
+	--with s_reg_dst select s_RegWrAddr <= s_rt when '0', s_rd when others;
+	s_reg_addr_sel(1) <= s_jal;
+	s_reg_addr_sel(0) <= s_reg_dst;
+	with s_reg_addr_sel select s_RegWrAddr <= 
+		"11111" when "11", 
+		"11111" when "10",
+		s_rd when "01",
+		s_rt when "00",
+		"00000" when others;
 	
 	--control module
 	ctrl_unit : control_unit
@@ -236,7 +263,10 @@ begin
 		o_alu_src => s_alu_src,
 		o_reg_write => s_RegWr,
 		o_sign_ext => s_unsigned,
-		o_LUI => s_lui
+		o_lui => s_lui,
+		o_bne => s_bne,
+		o_jal => s_jal,
+		o_jr => s_jr
 	);
 
 	-- think about s_RegWrData 
@@ -259,12 +289,20 @@ begin
 
 	-- branch and jumps
 	branch_shift_res <= extended_immediate(31 - 2 downto 0) & "00";
-	jump_address <= pc_add(31 downto 28) & s_Inst(26 - 1 downto 0) & "00";
-	branch_adder : full_adder_structure_generic  port map(i_A => s_NextInstAddr, i_B => branch_shift_res, i_C => '0', o_S => branch_add, o_C => open);
-	pc_adder : full_adder_structure_generic  port map(i_A => s_IMemAddr, i_B => x"00000004", i_C => '0', o_S => pc_add, o_C => open);
-	br_and : andg2 port map(i_A => s_branch, i_B => s_zero, o_F => pc_mux1_sel);
-	with pc_mux1_sel select pc_mux1_res <= pc_add when '0', branch_add when others;
-
-	with s_jump select pc_next <= pc_mux1_res when '0', jump_address when others;
+	jump_address <= pc_val(31 downto 28) & s_Inst(26 - 1 downto 0) & "00";
+	branch_adder : full_adder_structure_generic  port map(i_A => pc_val, i_B => branch_shift_res, i_C => '0', o_S => branch_add, o_C => open);
+	pc_adder : full_adder_structure_generic  port map(i_A => s_IMemAddr, i_B => x"00000004", i_C => '0', o_S => pc_val, o_C => open);
+	br_and : andg2 port map(i_A => s_branch, i_B => s_compare_branch_equality, o_F => pc_mux1_sel);
+	s_pc_sel(1) <= s_jump;
+	s_pc_sel(0) <= pc_mux1_sel;
+	with s_pc_sel select temp_pc_addr <= 
+		pc_val when "00", 
+		branch_add when "01", 
+		jump_address when "10", 
+		jump_address when "11", 
+		x"00000000" when others;
+	with s_jr select pc_next <= temp_pc_addr when '0', data_a when others;
+	--with  select pc_next <= pc_mux1_res when '0', jump_address when others;
+	return_reg_add <= pc_val;
 
 end structure;

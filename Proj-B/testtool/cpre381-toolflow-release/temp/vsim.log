@@ -3,7 +3,7 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # 10.7b
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework.do" 
-# Start time: 01:58:09 on Oct 30,2019
+# Start time: 20:24:06 on Oct 30,2019
 # //  ModelSim DE-64 10.7b Jun  8 2018
 # //
 # //  Copyright 1991-2018 Mentor Graphics Corporation
@@ -29,6 +29,7 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # Loading work.mem(rtl)
 # Loading work.zero_extender(dataflow)
 # Loading work.sign_extender(dataflow)
+# Loading work.invg(dataflow)
 # Loading synopsys.attributes
 # Loading ieee.std_logic_misc(body)
 # Loading work.control_unit(structure)
@@ -41,7 +42,6 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # Loading work.alu(structure)
 # Loading work.barrel_shifter(structure)
 # Loading work.mux2_structure_generic(structure)
-# Loading work.invg(dataflow)
 # Loading work.andg2(dataflow)
 # Loading work.org2(dataflow)
 # Loading work.mux2_structure(structure)
@@ -63,6 +63,6 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 
 ** Fatal: vish lost connection to vsim process.
 ** Fatal: Exiting VSIM license process.
-simulator: Unexpected EOF on RPC channel sock00000000078E15D0
+simulator: Unexpected EOF on RPC channel sock000000000790A4B0
 ** Fatal: Kernel lost connection to front end process.
-simulator: Unexpected EOF on RPC channel sock00000000078E1150
+simulator: Unexpected EOF on RPC channel sock000000000790A030

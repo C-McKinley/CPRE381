@@ -1,5 +1,5 @@
 Model Technology ModelSim DE-64 vcom 10.7b Compiler 2018.06 Jun  8 2018
-Start time: 01:58:04 on Oct 30,2019
+Start time: 20:24:02 on Oct 30,2019
 vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -75,5 +75,5 @@ vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd
 -- Compiling architecture dataflow of xorg2
 -- Compiling entity zero_extender
 -- Compiling architecture dataflow of zero_extender
-End time: 01:58:05 on Oct 30,2019, Elapsed time: 0:00:01
+End time: 20:24:03 on Oct 30,2019, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0
