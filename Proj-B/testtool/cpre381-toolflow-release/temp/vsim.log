@@ -3,7 +3,7 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # 10.7b
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework.do" 
-# Start time: 01:58:09 on Oct 30,2019
+# Start time: 19:43:05 on Oct 30,2019
 # //  ModelSim DE-64 10.7b Jun  8 2018
 # //
 # //  Copyright 1991-2018 Mentor Graphics Corporation
@@ -60,9 +60,11 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 6  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 14  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
 
 ** Fatal: vish lost connection to vsim process.
 ** Fatal: Exiting VSIM license process.
-simulator: Unexpected EOF on RPC channel sock00000000078E15D0
+simulator: Unexpected EOF on RPC channel sock000000000791E180
 ** Fatal: Kernel lost connection to front end process.
-simulator: Unexpected EOF on RPC channel sock00000000078E1150
+simulator: Unexpected EOF on RPC channel sock000000000791DD00
