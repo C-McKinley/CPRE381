@@ -18,7 +18,7 @@ if exist %lab_path% (
     exit 1
 )
 
-
+:loop
 :: Command line options:
 ::  --asm-file: Relative path to assembly file to simulate using unix style paths. Example: MARsWork/Examples/fibonacci.asm
 ::  --nocompile: Disables compilation to save time when the processor has not changed
@@ -30,5 +30,6 @@ if exist %lab_path% (
 :: use > nul to hide the pause output so we can print our own message
 echo Press any key to close . . .
 pause > nul
+goto loop 
 
 @popd

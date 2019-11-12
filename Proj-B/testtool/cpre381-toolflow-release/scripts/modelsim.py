@@ -64,7 +64,7 @@ def compile():
 	print('Successfully compiled vhdl\n')
 	return True
 
-def sim(timeout=30):
+def sim(timeout=3600):
 	'''
 	Simulates testbench. All work should be compiled before this method is called
 	Returns True if the simulation was successful, otherwise False

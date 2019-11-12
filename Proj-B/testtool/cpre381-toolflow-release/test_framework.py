@@ -102,7 +102,7 @@ def parse_args():
 	parser.add_argument('--asm-file', help='Relative path to assembly file to simulate using unix style paths.')
 	parser.add_argument('--max-mismatches', type=check_max_mismatches ,default=3, help='Number of incorrect instructions to print before the program claims failure, default=3')
 	parser.add_argument('--nocompile', action='store_true', help='flag used to disable compilation in order to save time')
-	parser.add_argument('--sim-timeout',type=check_sim_timeout, default=30, help='change the ammount of time before simulation is forcefully stopped')
+	parser.add_argument('--sim-timeout',type=check_sim_timeout, default=3600, help='change the ammount of time before simulation is forcefully stopped')
 	args = parser.parse_args()
 
 	options = {

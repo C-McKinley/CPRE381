@@ -163,6 +163,16 @@ architecture structure of MIPS_Processor is
 			i_in : in std_logic_vector(32 - 1 downto 0); -- Data value input
 			o_out : out std_logic_vector(32 - 1 downto 0)); -- Data value output
 	end component;
+	
+	component pc_register is
+  generic(N: integer:=32);
+  port(i_clk : in std_logic;     -- Clock input
+       i_rst : in std_logic;     -- Reset input
+       i_we  : in std_logic;     -- Load input
+       i_in  : in std_logic_vector(N-1 downto 0);     -- Data value input
+       o_out : out std_logic_vector(N-1 downto 0));   -- Data value output
+
+end component;
 component full_adder_structure_generic is
   port(i_A  : in std_logic_vector(32-1 downto 0);
        i_B  : in std_logic_vector(32-1 downto 0);
@@ -182,7 +192,8 @@ end component;
 	signal s_rs, s_rt, s_rd, s_shamt: std_logic_vector (5 - 1 downto 0);
 	signal s_overflow : std_logic;
 	signal data_a, data_b, sel_data_b, zero_extended_immediate, sign_extended_immediate, extended_immediate, alu_result, return_reg_add : std_logic_vector(32 - 1 downto 0);
-	signal branch_add, pc_mux1_res, branch_shift_res, jump_address, pc_val, pc_next, temp_pc_addr : std_logic_vector(32 - 1 downto 0);
+	signal branch_add, pc_mux1_res, branch_shift_res, jump_address, pc_val, temp_pc_addr : std_logic_vector(32 - 1 downto 0);
+	signal pc_next : std_logic_vector(32-1 downto 0) := x"00400000";
 	signal pc_mux1_sel : std_logic;
 
 begin
@@ -216,7 +227,7 @@ begin
 	zextend : zero_extender port map(i_in_16 => s_Inst(15 downto 0), o_out_32 => zero_extended_immediate);
 	sextend : sign_extender port map(i_in_16 => s_Inst(15 downto 0), o_out_32 => sign_extended_immediate);
 	-- extender
-	with s_unsigned select extended_immediate <= sign_extended_immediate when '0', zero_extended_immediate when others;
+	with s_unsigned select extended_immediate <= sign_extended_immediate when '1', zero_extended_immediate when others;
 	-- write_data mux
 	-- with s_mem_to_reg select s_reg_write_data <= s_DMemOut when '1', alu_result when others;
 	-- jal/write_data mux 
@@ -281,7 +292,7 @@ begin
 	s_DMemAddr <= alu_result;
 	s_DMemData <= data_b;
 	oALUOut <= alu_result;
-	pc_register : n_bit_register port map(
+	pc_reg: pc_register port map(
 		i_clk => iCLK,
 		i_rst => iRST,
 		i_we => '1',
@@ -289,7 +300,7 @@ begin
 		o_out => s_NextInstAddr);
 
 	-- branch and jumps
-	branch_shift_res <= extended_immediate(31 - 2 downto 0) & "00";
+	branch_shift_res <= sign_extended_immediate(29 downto 0) & "00";
 	jump_address <= pc_val(31 downto 28) & s_Inst(26 - 1 downto 0) & "00";
 	branch_adder : full_adder_structure_generic  port map(i_A => pc_val, i_B => branch_shift_res, i_C => '0', o_S => branch_add, o_C => open);
 	pc_adder : full_adder_structure_generic  port map(i_A => s_IMemAddr, i_B => x"00000004", i_C => '0', o_S => pc_val, o_C => open);

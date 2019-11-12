@@ -3,7 +3,7 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # 10.7b
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework.do" 
-# Start time: 20:24:06 on Oct 30,2019
+# Start time: 10:27:19 on Nov 11,2019
 # //  ModelSim DE-64 10.7b Jun  8 2018
 # //
 # //  Copyright 1991-2018 Mentor Graphics Corporation
@@ -48,6 +48,7 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # Loading work.alu_single_bit(mixed)
 # Loading work.full_adder_structure(structure)
 # Loading work.xorg2(dataflow)
+# Loading work.pc_register(structure)
 # Loading work.full_adder_structure_generic(structure)
 # do modelsim_framework.do
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -58,13 +59,11 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 6  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 14  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-
-** Fatal: vish lost connection to vsim process.
-** Fatal: Exiting VSIM license process.
-simulator: Unexpected EOF on RPC channel sock000000000790A4B0
-** Fatal: Kernel lost connection to front end process.
-simulator: Unexpected EOF on RPC channel sock000000000790A030
+# ** Note: Data structure takes 20540384 bytes of memory
+#          Process time 61.70 seconds
+#          stop
+#    Time: 3167220 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
+# Break in Process P_DUMP_STATE at U:/cpre_381/CPRE381/Proj-B/testtool/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
+# Stopped at U:/cpre_381/CPRE381/Proj-B/testtool/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
+# End time: 10:28:39 on Nov 11,2019, Elapsed time: 0:01:20
+# Errors: 0, Warnings: 4

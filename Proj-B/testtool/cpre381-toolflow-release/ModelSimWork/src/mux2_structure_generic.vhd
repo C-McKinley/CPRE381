@@ -47,13 +47,13 @@ signal inv_S: std_logic;
 signal i_AS, i_BIS: std_logic_vector(N-1 downto 0);
 
 begin
-
-mux: for i in 0 to N-1 generate
-
-	--compute ~S
+--compute ~S
 	invg_s: invg 
 		port map(i_A  => i_S,
 			 o_F  => inv_S);
+mux: for i in 0 to N-1 generate
+
+	
 	--compute B & S
 	andBIS_i: andg2 
 		port map(i_A  => i_B(i),

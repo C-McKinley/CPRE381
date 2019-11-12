@@ -53,10 +53,12 @@ begin
 	with i_ctrl select addsub <= 
 		'1' when SUB_ALU_OP, -- sub
 		'1' when SLT_ALU_OP, -- slt
+		'1' when SLTU_ALU_OP, -- sltu
 		'0' when others;
 	with i_ctrl select s_carry <= 
 		'1' when SUB_ALU_OP, -- sub
 		'1' when SLT_ALU_OP, -- slt
+		'1' when SLTU_ALU_OP, -- sltu
 		i_cin when ADD_ALU_OP,
 		'0' when others;
 	-- output mux
