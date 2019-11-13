@@ -55,6 +55,7 @@ architecture structure of alu is
 	signal barrel_ctrl : std_logic_vector(1 downto 0); -- [0:{logic/arithmetic} 1:{right/left}]
 	signal alu_result,  s_overflow, barrel_shifter_result, s_set, s_result : std_logic_vector(32 - 1 downto 0);
 	signal s_carry: std_logic_vector(32 downto 0);
+	signal s_shift: std_logic_vector(5 - 1 downto 0);
 begin
 	with i_ctrl select barrel_ctrl <= 
 		"10" when SLL_ALU_OP, 
@@ -64,10 +65,18 @@ begin
 		"00" when SRLV_ALU_OP,
 		"01" when SRAV_ALU_OP,
 		"00" when others;
+	with i_ctrl select s_shift <= 
+		i_shamt when SLL_ALU_OP, 
+		i_shamt when SRL_ALU_OP, 
+		i_shamt when SRA_ALU_OP, 
+		i_a(5-1 downto 0) when SLLV_ALU_OP,
+		i_a(5-1 downto 0) when SRLV_ALU_OP,
+		i_a(5-1 downto 0) when SRAV_ALU_OP,
+		"00000" when others;
 	shifter : barrel_shifter
 		port map(
 			i_data => i_b, 
-			i_shift => i_shamt, 
+			i_shift => s_shift, 
 			i_la => barrel_ctrl(0), 
 			i_rl => barrel_ctrl(1), 
 			o_f => barrel_shifter_result

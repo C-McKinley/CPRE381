@@ -1,5 +1,5 @@
 Model Technology ModelSim DE-64 vcom 10.7b Compiler 2018.06 Jun  8 2018
-Start time: 21:03:35 on Nov 12,2019
+Start time: 21:15:32 on Nov 12,2019
 vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -11,10 +11,6 @@ vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd
 -- Loading package opcode_t
 -- Compiling entity alu
 -- Compiling architecture structure of alu
-** Warning: ModelSimWork/src/alu.vhd(72): (vcom-1272) Length of expected is 5; length of actual is 32.
-** Warning: ModelSimWork/src/alu.vhd(73): (vcom-1272) Length of expected is 5; length of actual is 32.
-** Warning: ModelSimWork/src/alu.vhd(74): (vcom-1272) Length of expected is 5; length of actual is 32.
-** Warning: ModelSimWork/src/alu.vhd(75): (vcom-1272) Length of expected is 5; length of actual is 2.
 -- Compiling entity alu_single_bit
 -- Compiling architecture mixed of alu_single_bit
 -- Compiling entity andg2
@@ -81,5 +77,5 @@ vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd
 -- Compiling architecture dataflow of xorg2
 -- Compiling entity zero_extender
 -- Compiling architecture dataflow of zero_extender
-End time: 21:03:36 on Nov 12,2019, Elapsed time: 0:00:01
-Errors: 0, Warnings: 4
+End time: 21:15:33 on Nov 12,2019, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
