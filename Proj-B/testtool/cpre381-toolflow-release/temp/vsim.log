@@ -3,7 +3,7 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # 10.7b
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework.do" 
-# Start time: 10:27:19 on Nov 11,2019
+# Start time: 21:03:38 on Nov 12,2019
 # //  ModelSim DE-64 10.7b Jun  8 2018
 # //
 # //  Copyright 1991-2018 Mentor Graphics Corporation
@@ -36,7 +36,6 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # Loading work.register_array_t
 # Loading work.register_file(structure)
 # Loading work.n_bit_register(structure)
-# Loading work.dff(mixed)
 # Loading work.decoder_5_to_32(structure)
 # Loading work.mux_32_1(dataflow)
 # Loading work.alu(structure)
@@ -51,19 +50,12 @@ Reading C:/modelsim_dlx64_10.7b/tcl/vsim/pref.tcl
 # Loading work.pc_register(structure)
 # Loading work.full_adder_structure_generic(structure)
 # do modelsim_framework.do
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
-# ** Note: Data structure takes 20540384 bytes of memory
-#          Process time 61.70 seconds
-#          stop
-#    Time: 3167220 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
-# Break in Process P_DUMP_STATE at U:/cpre_381/CPRE381/Proj-B/testtool/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# Stopped at U:/cpre_381/CPRE381/Proj-B/testtool/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# End time: 10:28:39 on Nov 11,2019, Elapsed time: 0:01:20
-# Errors: 0, Warnings: 4
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 5 (4 downto 0). Right is 2 (4 downto 3).
+#    Time: 0 ns  Iteration: 0  Process: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/alu_compute/line__69 File: U:/cpre_381/CPRE381/Proj-B/testtool/cpre381-toolflow-release/ModelSimWork/src/alu.vhd
+# Fatal error in Architecture structure at U:/cpre_381/CPRE381/Proj-B/testtool/cpre381-toolflow-release/ModelSimWork/src/alu.vhd line 69
+# 
+# HDL call sequence:
+# Stopped at U:/cpre_381/CPRE381/Proj-B/testtool/cpre381-toolflow-release/ModelSimWork/src/alu.vhd 69 Architecture structure
+# 
+# End time: 21:03:39 on Nov 12,2019, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 0
