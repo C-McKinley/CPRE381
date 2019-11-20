@@ -166,25 +166,27 @@ architecture structure of MIPS_Processor is
 
 	component ex_mem_register is
 		port (
-			i_clk : in std_logic; -- Clock input
-			i_rst : in std_logic; -- Reset input
-			i_we : in std_logic; -- Load input
-			i_wb : in std_logic_vector(2 - 1 downto 0);
-			i_mem : in std_logic_vector(2 - 1 downto 0);
-			i_branch : in std_logic;
-			i_branch_addr : in std_logic_vector(32 - 1 downto 0);
-			i_alu_sum : in std_logic_vector(32 - 1 downto 0);
-			i_alu_zero : in std_logic;
-			i_rt_data : in std_logic_vector(32 - 1 downto 0);
-			i_rd_addr : in std_logic_vector(5 - 1 downto 0);
-			o_wb : out std_logic_vector(2 - 1 downto 0);
-			o_mem : out std_logic_vector(2 - 1 downto 0);
-			o_branch : out std_logic;
-			o_branch_addr : out std_logic_vector(32 - 1 downto 0);
-			o_alu_sum : out std_logic_vector(32 - 1 downto 0);
-			o_alu_zero : out std_logic;
-			o_rt_data : out std_logic_vector(32 - 1 downto 0);
-			o_rd_addr : out std_logic_vector(5 - 1 downto 0)
+		i_clk         : in std_logic; -- Clock input
+		i_rst         : in std_logic; -- Reset input
+		i_we          : in std_logic; -- Load input
+		i_inst	:  in std_logic_vector(32 - 1 downto 0);
+		i_wb          : in std_logic_vector(2 - 1 downto 0);
+		i_mem         : in std_logic_vector(2 - 1 downto 0); 
+		i_branch      : in std_logic;
+		i_branch_addr : in std_logic_vector(32 - 1 downto 0); 
+		i_alu_sum     : in std_logic_vector(32 - 1 downto 0); 
+		i_alu_zero    : in std_logic; 
+		i_rt_data     : in std_logic_vector(32 - 1 downto 0); 
+		i_rd_addr     : in std_logic_vector(5 - 1 downto 0); 
+		o_wb          : out std_logic_vector(2 - 1 downto 0);
+		o_mem         : out std_logic_vector(2 - 1 downto 0);
+		o_branch      : out std_logic;
+		o_branch_addr : out std_logic_vector(32 - 1 downto 0);
+		o_alu_sum     : out std_logic_vector(32 - 1 downto 0);
+		o_alu_zero    : out std_logic;
+		o_rt_data     : out std_logic_vector(32 - 1 downto 0);
+		o_rd_addr     : out std_logic_vector(5 - 1 downto 0);
+		o_inst : out std_logic_vector(32 - 1 downto 0)
 		);
 
 	end component;
@@ -231,18 +233,20 @@ architecture structure of MIPS_Processor is
 
 	component mem_wb_register is
 		port (
-			i_clk : in std_logic; -- Clock input
-			i_rst : in std_logic; -- Reset input
-			i_we : in std_logic; -- Load input
-			i_wb : in std_logic_vector(2 - 1 downto 0);
-			i_mem : in std_logic_vector(2 - 1 downto 0);
-			i_alu_sum : in std_logic_vector(32 - 1 downto 0);
-			i_data_q : in std_logic_vector(32 - 1 downto 0);
-			i_rd_addr : in std_logic_vector(5 - 1 downto 0);
-			o_wb : out std_logic_vector(2 - 1 downto 0);
-			o_alu_sum : out std_logic_vector(32 - 1 downto 0);
-			o_data_q : out std_logic_vector(32 - 1 downto 0);
-			o_rd_addr : out std_logic_vector(5 - 1 downto 0)
+		i_clk     : in std_logic; -- Clock input
+		i_rst     : in std_logic; -- Reset input
+		i_we      : in std_logic; -- Load input
+		i_inst : in std_logic_vector(32 - 1 downto 0);
+		i_wb      : in std_logic_vector(2 - 1 downto 0); 
+		i_mem     : in std_logic_vector(2 - 1 downto 0); 
+		i_alu_sum : in std_logic_vector(32 - 1 downto 0); 
+		i_data_q  : in std_logic_vector(32 - 1 downto 0);
+		i_rd_addr : in std_logic_vector(5 - 1 downto 0); 
+		o_wb      : out std_logic_vector(2 - 1 downto 0);
+		o_alu_sum : out std_logic_vector(32 - 1 downto 0);
+		o_data_q  : out std_logic_vector(32 - 1 downto 0);
+		o_rd_addr : out std_logic_vector(5 - 1 downto 0);
+		o_inst : out std_logic_vector(32 - 1 downto 0)
 		);
 	end component;
 
@@ -428,6 +432,7 @@ begin
 			i_clk => iCLK,
 			i_rst => iRST,
 			i_we => '1',
+			i_inst => s_inst_ex,
 			i_wb => s_wb_ex,
 			i_mem => s_mem_ex,
 			i_branch => s_branch_ex,
@@ -443,7 +448,8 @@ begin
 			o_alu_sum => s_alu_result_mem,
 			o_alu_zero => s_zero_mem,
 			o_rt_data => s_rt_data_mem, 
-			o_rd_addr => s_rd_addr_mem
+			o_rd_addr => s_rd_addr_mem,
+		o_inst => s_inst_mem
 		);
 	not_zero : invg port map(i_A => s_zero, o_F => s_not_zero);
 	with s_bne select s_compare_branch_equality <= s_not_zero when '1', s_zero when others;
@@ -463,6 +469,7 @@ begin
 		i_clk => iCLK,
 			i_rst => iRST,
 			i_we => '1',
+			i_inst => s_inst_mem,
 			i_wb => s_wb_mem,
 			i_mem => s_mem_mem,
 			i_alu_sum => s_alu_result_mem,
@@ -471,7 +478,8 @@ begin
 			o_wb => s_wb_wb,
 			o_alu_sum => s_alu_result_wb,
 			o_data_q => s_dmem_data_wb,
-			o_rd_addr => s_RegWrAddr
+			o_rd_addr => s_RegWrAddr,
+			o_inst => s_inst_wb
 	);
 
 	
