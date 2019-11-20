@@ -1,0 +1,161 @@
+
+Exception caught at 2019-10-30 23:54:16.144055:
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 184, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 111, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=False)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 150, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 143, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-10-30 23:56:13.572335:
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 184, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 111, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=False)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 150, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 143, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-10-30 23:58:43.569986:
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 184, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 111, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=False)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 150, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 143, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-10-31 00:01:00.203569:
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 184, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 111, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=False)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 150, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 143, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-10-31 00:47:58.396517:
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 184, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 111, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=False)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 150, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 143, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-10-31 00:50:16.452693:
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 184, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 111, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=False)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 150, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 143, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-10-31 00:56:48.863286:
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 184, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 111, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=False)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 150, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-B\testtool\cpre381-toolflow-release\scripts\modelsim.py", line 143, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'

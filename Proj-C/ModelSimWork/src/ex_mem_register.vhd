@@ -17,6 +17,7 @@ entity ex_mem_register is
 		i_clk         : in std_logic; -- Clock input
 		i_rst         : in std_logic; -- Reset input
 		i_we          : in std_logic; -- Load input
+		i_inst	:  in std_logic_vector(32 - 1 downto 0);
 		i_wb          : in std_logic_vector(2 - 1 downto 0);
 		i_mem         : in std_logic_vector(2 - 1 downto 0); 
 		i_branch      : in std_logic;
@@ -32,16 +33,18 @@ entity ex_mem_register is
 		o_alu_sum     : out std_logic_vector(32 - 1 downto 0);
 		o_alu_zero    : out std_logic;
 		o_rt_data     : out std_logic_vector(32 - 1 downto 0);
-		o_rd_addr     : out std_logic_vector(5 - 1 downto 0)
+		o_rd_addr     : out std_logic_vector(5 - 1 downto 0);
+		o_inst : out std_logic_vector(32 - 1 downto 0)
 	);
 
 end ex_mem_register;
 
 architecture structure of ex_mem_register is
-	signal s_D : std_logic_vector(107 - 1 downto 0); -- Multiplexed input to the FF
-	signal s_Q : std_logic_vector(107 - 1 downto 0); -- Output of the FF
+	signal s_D : std_logic_vector(139 - 1 downto 0); -- Multiplexed input to the FF
+	signal s_Q : std_logic_vector(139 - 1 downto 0); -- Output of the FF
 begin
 	-- The output of the FF is fixed to s_Q
+	o_inst <= s_Q(139 - 1 downto 107);
 	o_wb          <= s_Q(107 - 1 downto 105);
 	o_mem         <= s_Q(105 - 1 downto 103);
 	o_branch      <= s_Q(102);
@@ -52,7 +55,7 @@ begin
 	o_rd_addr     <= s_Q(5 - 1 downto 0);
 	-- Create a multiplexed input to the FF based on i_WE
 	with i_WE select
-	s_D <= i_wb & i_mem & i_branch & i_branch_addr & i_alu_sum & i_alu_zero & i_rt_data & i_rd_addr when '1', 
+	s_D <= i_inst & i_wb & i_mem & i_branch & i_branch_addr & i_alu_sum & i_alu_zero & i_rt_data & i_rd_addr when '1', 
 	       s_Q when others;
  
 	-- This process handles the asyncrhonous reset and
