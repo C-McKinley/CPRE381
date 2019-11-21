@@ -1,5 +1,5 @@
 Model Technology ModelSim DE-64 vcom 10.7b Compiler 2018.06 Jun  8 2018
-Start time: 18:20:52 on Nov 13,2019
+Start time: 21:01:01 on Nov 20,2019
 vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -23,59 +23,28 @@ vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd
 -- Compiling architecture structure of decoder_5_to_32
 -- Compiling entity dff
 -- Compiling architecture mixed of dff
+-- Compiling entity ex_mem_register
+-- Compiling architecture structure of ex_mem_register
 -- Compiling entity full_adder_dataflow_generic
 -- Compiling architecture dataflow of full_adder_dataflow_generic
 -- Compiling entity full_adder_structure
 -- Compiling architecture structure of full_adder_structure
 -- Compiling entity full_adder_structure_generic
 -- Compiling architecture structure of full_adder_structure_generic
+-- Compiling entity id_ex_register
+-- Compiling architecture structure of id_ex_register
+-- Compiling entity if_id_register
+-- Compiling architecture structure of if_id_register
 -- Compiling entity invg
 -- Compiling architecture dataflow of invg
 -- Loading package NUMERIC_STD
 -- Compiling entity mem
 -- Compiling architecture rtl of mem
+-- Compiling entity mem_wb_register
+-- Compiling architecture structure of mem_wb_register
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
--- Compiling entity mux2_dataflow_generic
--- Compiling architecture dataflow of mux2_dataflow_generic
--- Compiling entity mux2_structure
--- Compiling architecture structure of mux2_structure
--- Compiling entity mux2_structure_generic
--- Compiling architecture structure of mux2_structure_generic
--- Loading package register_array_t
--- Compiling entity mux_32_1
--- Compiling architecture dataflow of mux_32_1
--- Compiling entity n_bit_register
--- Compiling architecture structure of n_bit_register
--- Compiling entity ones_complimenter_dataflow
--- Compiling architecture dataflow of ones_complimenter_dataflow
--- Compiling entity ones_complimenter_structure
--- Compiling architecture structure of ones_complimenter_structure
--- Compiling package opcode_t
--- Compiling entity org2
--- Compiling architecture dataflow of org2
--- Compiling entity pc_register
--- Compiling architecture structure of pc_register
--- Loading package opcode_t
--- Compiling entity processor
--- Compiling architecture structure of processor
--- Compiling package register_array_t
--- Loading package register_array_t
--- Compiling entity register_file
--- Compiling architecture structure of register_file
--- Compiling entity sign_extender
--- Compiling architecture dataflow of sign_extender
--- Compiling entity tb_alu
--- Compiling architecture behavior of tb_alu
--- Compiling entity tb_control_unit
--- Compiling architecture behavior of tb_control_unit
--- Loading package std_logic_textio
--- Loading package ENV
--- Compiling entity tb_SimplifiedMIPSProcessor
--- Compiling architecture mixed of tb_SimplifiedMIPSProcessor
--- Compiling entity xorg2
--- Compiling architecture dataflow of xorg2
--- Compiling entity zero_extender
--- Compiling architecture dataflow of zero_extender
-End time: 18:20:53 on Nov 13,2019, Elapsed time: 0:00:01
-Errors: 0, Warnings: 0
+** Error: ModelSimWork/src/MIPS_Processor.vhd(502): (vcom-1136) Unknown identifier "s_mem_wb".
+** Note: ModelSimWork/src/MIPS_Processor.vhd(523): VHDL Compiler exiting
+End time: 21:01:01 on Nov 20,2019, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
