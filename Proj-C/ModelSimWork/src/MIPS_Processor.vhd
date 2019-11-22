@@ -307,7 +307,7 @@ signal s_reg_write_addr_id, s_reg_write_addr_ex, s_reg_write_addr_mem : std_logi
 	signal s_rt_data_ex, s_rt_data_mem : std_logic_vector(32 - 1 downto 0);
 	signal s_rt_addr_id, s_rt_addr_ex : std_logic_vector(5 - 1 downto 0);
 	signal s_rs_addr_id, s_rs_addr_ex : std_logic_vector(5 - 1 downto 0);
-	signal s_rd_addr_id, s_rd_addr_ex , s_rd_addr_mem: std_logic_vector(5 - 1 downto 0);
+	signal s_rd_addr_id, s_rd_addr_ex , s_rd_addr_mem, s_rd_addr_wb: std_logic_vector(5 - 1 downto 0);
 	signal s_zero_ex, s_zero_mem : std_logic;
 	signal s_branch_ex, s_branch_mem : std_logic;
 	signal s_dmem_data_wb : std_logic_vector(32 - 1 downto 0);
@@ -353,7 +353,7 @@ begin
 		o_pc => s_pc_val_id,
 		o_inst => s_inst_id);
 
-	s_rd_addr_id <= s_inst_id(15 downto 11);
+	
 	s_rs_addr_id <= s_inst_id(25 downto 21);
 	s_rt_addr_id <= s_inst_id(20 downto 16);
 
@@ -388,10 +388,10 @@ begin
 		o_data_a => data_a, o_data_b => data_b, o_v0 => v0
 	);
 	-- destination select 
-	with s_reg_addr_sel select s_RegWrAddr <=
+	with s_reg_addr_sel select s_rd_addr_id <=
 		"11111" when "11",
 		"11111" when "10",
-		s_rd_addr_id when "01",
+		s_inst_id(15 downto 11) when "01",
 		s_rt_addr_id when "00",
 		"00000" when others;
 	s_ex_id <=  s_alu_src_id & s_alu_opcode_id;
@@ -416,7 +416,7 @@ begin
 			i_rt_data => data_b,
 			i_sign_ext => sign_extended_immediate,
 			i_rt_addr => s_rt_addr_id,
-			i_rd_addr => s_RegWrAddr,
+			i_rd_addr => s_rd_addr_id,
 			o_wb => s_wb_ex,
 			o_mem => s_mem_ex,
 			o_alu_src => s_alu_src_ex,
@@ -499,13 +499,14 @@ s_fucnt_mem <= s_inst_mem(5 downto 0);
 			o_mem => s_mem_wb,
 			o_alu_sum => s_alu_result_wb,
 			o_data_q => s_dmem_data_wb,
-			o_rd_addr => s_reg_write_addr_mem,
+			o_rd_addr => s_rd_addr_wb,
 			o_inst_op => s_inst_op_wb,
 			o_funct => s_funct_wb,
 			o_v0 =>  s_v0_wb
 	);
 
 	
+s_RegWrAddr <= s_rd_addr_wb;
 
 	-- write_data mux
 	-- with s_mem_to_reg select s_reg_write_data <= s_DMemOut when '1', alu_result when others;
