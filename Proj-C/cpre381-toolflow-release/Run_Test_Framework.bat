@@ -3,7 +3,7 @@ cls
 @pushd %~dp0
 
 :: Path to Python 3.6 on both lab compulters and VDI
-set lab_path="C:\Program Files (x86)\Python37-32\python.exe"
+set lab_path="C:\Python36\python.exe"
 set vdi_path="C:\Python\python.exe"
 
 ::Check which python location exists and then set python_path to that location
@@ -16,7 +16,7 @@ if exist %lab_path% (
     exit 1
 )
 
-
+:loop
 :: Command line options:
 ::  --asm-file: Relative path to assembly file to simulate using unix style paths. Example: MARsWork/Examples/fibonacci.asm
 ::  --nocompile: Disables compilation to save time when the processor has not changed
@@ -26,7 +26,7 @@ if exist %lab_path% (
 
 ::Pause so students can see final output if they are not using the command line
 :: use > nul to hide the pause output so we can print our own message
-echo Press any key to close . . .
+echo Press any key to continue . . .
 pause > nul
-
+goto loop 
 @popd

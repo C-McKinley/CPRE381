@@ -6,6 +6,10 @@ import time
 
 # used to see if output may have timed out but outputted correctly (meaning no halt signal)
 expected_firstline = re.compile(r'In clock cycle: (?P<cycle>[0-9]+)')
+model_sim_dir = 'C:\\Modeltech_pe_edu_10.4a\\win32pe_edu'
+model_sim_vlib = 'C:\\Modeltech_pe_edu_10.4a\\win32pe_edu\\vlib.exe'
+model_sim_vcom = 'C:\\Modeltech_pe_edu_10.4a\\win32pe_edu\\vcom.exe'
+model_sim_vsim = 'C:\\Modeltech_pe_edu_10.4a\\win32pe_edu\\vsim.exe'
 
 def compile():
 	'''
@@ -31,7 +35,7 @@ def compile():
 	# Create work folder for compiled work
 	try:
 		subprocess.check_output( # use check_output to suppress any output
-			['C:\\modelsim_dlx64_10.7b\\win64pe\\vlib.exe','ModelSimWork/work']) 
+			[ model_sim_vlib,'ModelSimWork/work']) 
 	except:
 		print("could not successfully create work folder")
 		return False
@@ -39,7 +43,13 @@ def compile():
 	try:
 		with open('temp/vcom_compile.log','w') as f:
 			exit_code = subprocess.call(
-				['C:\\modelsim_dlx64_10.7b\\win64pe\\vcom.exe','-2008','-work','ModelSimWork/work','ModelSimWork/src/*.vhd'],
+				[model_sim_vcom,'-2008','-work','ModelSimWork/work','ModelSimWork/src/*_t.vhd'],
+				stdout=f,
+				timeout=60
+			)
+		with open('temp/vcom_compile.log','w') as f:
+			exit_code = subprocess.call(
+				[model_sim_vcom,'-2008','-work','ModelSimWork/work','ModelSimWork/src/*.vhd'],
 				stdout=f,
 				timeout=60
 			)
@@ -74,9 +84,9 @@ def sim(timeout=30, deep_debug=False):
 
 
 		# C:\modeltech64_10.5b\win64\vsim.exe -c -novopt tb_SimplifiedMIPSProcessor -do modelsim_fremawork.do
-		with open('temp/vsim.log','w') as sim_log:
+		with open('temp/vsim.log','w+') as sim_log:
 			exit_code = subprocess.call(
-				['C:\\modelsim_dlx64_10.7b\\win64pe\\vsim.exe','-c','tb_SimplifiedMIPSProcessor','-do',do_file],
+				[model_sim_vsim,'-c','tb_SimplifiedMIPSProcessor','-do',do_file],
 				stdout=sim_log,
 				stderr=sim_log,
 				cwd='ModelSimWork/', #Run this process in a different directory for work folder
@@ -113,7 +123,7 @@ def sim(timeout=30, deep_debug=False):
 	print('Successfully simulated program!\n')
 
 	if(deep_debug):
-		subprocess.Popen(['C:\\modelsim_dlx64_10.7b\\win64pe\\vsim.exe','-view','temp/vsim.wlf'])
+		subprocess.Popen([model_sim_vsim,'-view','temp/vsim.wlf'])
 
 
 
@@ -160,4 +170,4 @@ def is_installed():
 	'''
 
 	# This only checks the existance of the win64 directory with the executables we want
-	return os.path.isdir('C:/modelsim_dlx64_10.7b/win64pe')
+	return os.path.isdir(model_sim_dir)

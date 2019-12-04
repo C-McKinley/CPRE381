@@ -18,15 +18,55 @@ addi  $8,  $0,  8		# Place “8” in $8
 addi  $9,  $0,  9		# Place “9” in $9
 addi  $10, $0,  10		# Place “10” in $10
 add	 $11, $1,  $2		# $11 = $1 + $2
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 sub 	 $12, $11, $3 		# $12 = $11 - $3
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 add 	 $13, $12, $4		# $13 = $12 + $4
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 sub	 $14, $13, $5		# $14 = $13 - $5
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 add   $15, $14, $6		# $15 = $14 + $6
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 sub 	 $16, $15, $7		# $16 = $15 - $7
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 add   $17, $16, $8		# $17 = $16 + $8
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 sub 	 $18, $17, $9		# $18 = $17 - $9
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 add   $19, $18, $10 	# $19 = $18 + $10
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 addi  $20, $0,  35		# Place “35” in $20
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
+addi  $0,  $0,  0 		# NO-OP
 add 	 $21, $19, $20	 	# $21 = $19 + $20
 
 addi  $2,  $0,  10              # Place "10" in $v0 to signal an "exit" or "halt"
