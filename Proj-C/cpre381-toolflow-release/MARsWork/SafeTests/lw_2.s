@@ -18,6 +18,7 @@ main:
     lw $t3, -8($s0)      #This should load "4567"
 
     lw $t4, -12($s0)     #This should load "0123"
+	addi $t4, $t4, 4
     
     li $v0, 10
     syscall             #Exit

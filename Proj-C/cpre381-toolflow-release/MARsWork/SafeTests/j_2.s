@@ -2,7 +2,7 @@
 .globl main
 main:
     # Start Test
-    j start
+    j min
 min:
     j exit
 start:
