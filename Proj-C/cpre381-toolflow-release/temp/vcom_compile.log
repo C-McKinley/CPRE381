@@ -1,0 +1,97 @@
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 18:15:17 on Dec 11,2019
+vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_subtractor_structure_generic
+-- Compiling architecture structure of adder_subtractor_structure_generic
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package opcode_t
+-- Compiling entity alu
+-- Compiling architecture structure of alu
+-- Compiling entity alu_single_bit
+-- Compiling architecture mixed of alu_single_bit
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity barrel_shifter
+-- Compiling architecture structure of barrel_shifter
+-- Compiling entity compare_unit
+-- Compiling architecture behavioral of compare_unit
+-- Compiling entity control_unit
+-- Compiling architecture structure of control_unit
+-- Compiling entity decoder_5_to_32
+-- Compiling architecture structure of decoder_5_to_32
+-- Compiling entity dff
+-- Compiling architecture mixed of dff
+-- Compiling entity ex_mem_register
+-- Compiling architecture structure of ex_mem_register
+-- Compiling entity forward_unit_ex
+-- Compiling architecture behavorial of forward_unit_ex
+-- Compiling entity forward_unit_id
+-- Compiling architecture behavorial of forward_unit_id
+-- Compiling entity forward_unit_mem
+-- Compiling architecture behavorial of forward_unit_mem
+-- Compiling entity full_adder_dataflow_generic
+-- Compiling architecture dataflow of full_adder_dataflow_generic
+-- Compiling entity full_adder_structure
+-- Compiling architecture structure of full_adder_structure
+-- Compiling entity full_adder_structure_generic
+-- Compiling architecture structure of full_adder_structure_generic
+-- Compiling entity hazard_unit
+-- Compiling architecture behavioral of hazard_unit
+-- Compiling entity id_ex_register
+-- Compiling architecture structure of id_ex_register
+-- Compiling entity if_id_register
+-- Compiling architecture structure of if_id_register
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+-- Loading package NUMERIC_STD
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+-- Compiling entity mem_wb_register
+-- Compiling architecture structure of mem_wb_register
+-- Compiling entity MIPS_Processor
+-- Compiling architecture structure of MIPS_Processor
+-- Compiling entity mux2_dataflow_generic
+-- Compiling architecture dataflow of mux2_dataflow_generic
+-- Compiling entity mux2_structure
+-- Compiling architecture structure of mux2_structure
+-- Compiling entity mux2_structure_generic
+-- Compiling architecture structure of mux2_structure_generic
+-- Loading package register_array_t
+-- Compiling entity mux_32_1
+-- Compiling architecture dataflow of mux_32_1
+-- Compiling entity n_bit_register
+-- Compiling architecture structure of n_bit_register
+-- Compiling entity ones_complimenter_dataflow
+-- Compiling architecture dataflow of ones_complimenter_dataflow
+-- Compiling entity ones_complimenter_structure
+-- Compiling architecture structure of ones_complimenter_structure
+-- Compiling package opcode_t
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity pc_next_unit
+-- Compiling architecture mixed of pc_next_unit
+-- Compiling entity pc_register
+-- Compiling architecture structure of pc_register
+-- Loading package opcode_t
+-- Compiling entity processor
+-- Compiling architecture structure of processor
+-- Compiling package register_array_t
+-- Loading package register_array_t
+-- Compiling entity register_file
+-- Compiling architecture structure of register_file
+-- Compiling entity sign_extender
+-- Compiling architecture dataflow of sign_extender
+-- Loading package std_logic_textio
+-- Loading package ENV
+-- Compiling entity tb_SimplifiedMIPSProcessor
+-- Compiling architecture mixed of tb_SimplifiedMIPSProcessor
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+-- Compiling entity zero_extender
+-- Compiling architecture dataflow of zero_extender
+End time: 18:15:17 on Dec 11,2019, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

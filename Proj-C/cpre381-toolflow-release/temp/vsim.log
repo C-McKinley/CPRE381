@@ -1,0 +1,171 @@
+Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+
+# 10.4a
+
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
+# Start time: 18:15:24 on Dec 11,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_simplifiedmipsprocessor(mixed)
+# Loading work.opcode_t
+# Loading work.mips_processor(structure)
+# Loading ieee.numeric_std(body)
+# Loading work.mem(rtl)
+# Loading work.full_adder_structure_generic(structure)
+# Loading work.full_adder_structure(structure)
+# Loading work.xorg2(dataflow)
+# Loading work.andg2(dataflow)
+# Loading work.org2(dataflow)
+# Loading work.pc_register(structure)
+# Loading work.if_id_register(structure)
+# Loading work.hazard_unit(behavioral)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading work.control_unit(structure)
+# Loading work.zero_extender(dataflow)
+# Loading work.sign_extender(dataflow)
+# Loading work.register_array_t
+# Loading work.register_file(structure)
+# Loading work.n_bit_register(structure)
+# Loading work.decoder_5_to_32(structure)
+# Loading work.mux_32_1(dataflow)
+# Loading work.compare_unit(behavioral)
+# Loading work.forward_unit_id(behavorial)
+# Loading work.id_ex_register(structure)
+# Loading work.forward_unit_ex(behavorial)
+# Loading work.alu(structure)
+# Loading work.barrel_shifter(structure)
+# Loading work.mux2_structure_generic(structure)
+# Loading work.invg(dataflow)
+# Loading work.mux2_structure(structure)
+# Loading work.alu_single_bit(mixed)
+# Loading work.ex_mem_register(structure)
+# Loading work.forward_unit_mem(behavorial)
+# Loading work.mem_wb_register(structure)
+# Loading work.pc_next_unit(mixed)
+# ** Warning: Design size of 34462 statements or 1669 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# do modelsim_framework2.do
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 680 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 700 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2620 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2640 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2800 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2980 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2980 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3 us  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3 us  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3480 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3500 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5420 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5440 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5600 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5780 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5780 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5800 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5800 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 6280 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 6300 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 8220 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 8240 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 8400 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 8580 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 8580 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 8600 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 8600 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 9080 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 9100 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11020 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11040 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11200 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11380 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11380 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11400 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11400 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11880 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 11900 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13820 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13840 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 14 us  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 14180 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 14180 ns  Iteration: 4  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_file/mux2
+** Error: Error while reopening stdout stream! Error: wrong # args: should be "mti_ReopenTransFile ?fn?"
+** Fatal: vsimk is exiting with code 7.
+Exit codes are defined in the "Error and Warning Messages"
+appendix of the ModelSim User's Manual.

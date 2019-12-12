@@ -3,7 +3,7 @@
 -- Department of Electrical and Computer Engineering
 -- Iowa State University
 -------------------------------------------------------------------------
--- tb_id_ex_reg.vhd
+-- tb_if_id_reg.vhd
 -------------------------------------------------------------------------
 
 library IEEE;
@@ -17,47 +17,20 @@ end tb_if_id_reg;
 
 architecture behavior of tb_if_id_reg is
 	constant cCLK_PER : time := gCLK_HPER * 2;
-	component id_ex_register is
+	component if_id_register is
 		port (
-		i_clk      : in std_logic; -- Clock input
-		i_rst      : in std_logic; -- Reset input
-		i_we       : in std_logic; -- Load input
-		i_mem_read : in std_logic;
-		i_inst	   : in std_logic_vector(32 - 1 downto 0);
-		i_shamt : in std_logic_vector(5 - 1 downto 0);
-		i_data_b : in std_logic_vector(32 - 1 downto 0);
-		i_wb       : in std_logic_vector(2 - 1 downto 0);
-		i_mem      : in std_logic_vector(2 - 1 downto 0);
-		i_ex       : in std_logic_vector(7 - 1 downto 0);
-		i_pc       : in std_logic_vector(32 - 1 downto 0);
-		i_rs_data  : in std_logic_vector(32 - 1 downto 0);
-		i_rt_data  : in std_logic_vector(32 - 1 downto 0);
-		i_sign_ext : in std_logic_vector(32 - 1 downto 0);
-		i_rt_addr  : in std_logic_vector(5 - 1 downto 0);
-		i_rd_addr  : in std_logic_vector(5 - 1 downto 0);
-		o_wb       : out std_logic_vector(2 - 1 downto 0);
-		o_mem      : out std_logic_vector(2 - 1 downto 0);
-		o_alu_src  : out std_logic;
-		o_alu_op   : out std_logic_vector(6 - 1 downto 0);
-		o_pc       : out std_logic_vector(32 - 1 downto 0);
-		o_rs_data  : out std_logic_vector(32 - 1 downto 0);
-		o_rt_data  : out std_logic_vector(32 - 1 downto 0);
-		o_sign_ext : out std_logic_vector(32 - 1 downto 0);
-		o_rt_addr  : out std_logic_vector(5 - 1 downto 0);
-		o_rd_addr  : out std_logic_vector(5 - 1 downto 0);
-		o_inst : out std_logic_vector(32 - 1 downto 0);
-		o_shamt: out std_logic_vector(5 - 1 downto 0);
-		o_data_b : out std_logic_vector(32 - 1 downto 0);
-		o_mem_read : out std_logic
-
+			i_clk : in std_logic; -- Clock input
+			i_rst : in std_logic; -- Reset input
+			i_we : in std_logic; -- Load input
+			i_pc : in std_logic_vector(32 - 1 downto 0);
+			i_inst : in std_logic_vector(32 - 1 downto 0);
+			o_pc : out std_logic_vector(32 - 1 downto 0);
+			o_inst : out std_logic_vector(32 - 1 downto 0)
 		);
+	end component;
 
 	signal s_write : std_logic_vector(6 - 1 downto 0);
 	signal s_rst : std_logic_vector(32-1 downto 0);
-	signal s_mem_read_in, s_mem_read_out : std_logic;
-	signal s_shamt_in, s_shamt_out : std_logic_vector(5 -1 downto 0);
-	signal s_data_b_in, s_data_b_out : std_logic_vector( 5 - 1 downto 0);
-	--signal s_wb_
 	signal s_pc_in, s_pc_out : std_logic_vector(32-1 downto 0);
 	signal s_inst_in, s_pc_out : std_logic_vector(32-1 downto 0);
 	signal s_CLK : std_logic;

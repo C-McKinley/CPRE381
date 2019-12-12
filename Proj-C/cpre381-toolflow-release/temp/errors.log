@@ -1,0 +1,136 @@
+
+Exception caught at 2019-12-08 18:21:35.707323:
+Traceback (most recent call last):
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 93, in sim
+    timeout=timeout # If the do file doesn't reach the 'quit' we need to manually kill the process
+  File "C:\Python36\lib\subprocess.py", line 269, in call
+    return p.wait(timeout=timeout)
+  File "C:\Python36\lib\subprocess.py", line 1049, in wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Modeltech_pe_edu_10.4a\\win32pe_edu\\vsim.exe', '-c', 'tb_SimplifiedMIPSProcessor', '-do', 'modelsim_framework.do']' timed out after 30 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 186, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'], deep_debug=options['deep_debug'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 109, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=True)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 165, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 158, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-12-08 18:27:48.529559:
+Traceback (most recent call last):
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 93, in sim
+    timeout=timeout # If the do file doesn't reach the 'quit' we need to manually kill the process
+  File "C:\Python36\lib\subprocess.py", line 269, in call
+    return p.wait(timeout=timeout)
+  File "C:\Python36\lib\subprocess.py", line 1049, in wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Modeltech_pe_edu_10.4a\\win32pe_edu\\vsim.exe', '-c', 'tb_SimplifiedMIPSProcessor', '-do', 'modelsim_framework.do']' timed out after 30 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 186, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'], deep_debug=options['deep_debug'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 109, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=True)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 165, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 158, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-12-08 18:30:42.271267:
+Traceback (most recent call last):
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 93, in sim
+    timeout=timeout # If the do file doesn't reach the 'quit' we need to manually kill the process
+  File "C:\Python36\lib\subprocess.py", line 269, in call
+    return p.wait(timeout=timeout)
+  File "C:\Python36\lib\subprocess.py", line 1049, in wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Modeltech_pe_edu_10.4a\\win32pe_edu\\vsim.exe', '-c', 'tb_SimplifiedMIPSProcessor', '-do', 'modelsim_framework.do']' timed out after 30 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 186, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'], deep_debug=options['deep_debug'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 109, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=True)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 165, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 158, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
+
+Exception caught at 2019-12-08 18:32:26.643681:
+Traceback (most recent call last):
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 93, in sim
+    timeout=timeout # If the do file doesn't reach the 'quit' we need to manually kill the process
+  File "C:\Python36\lib\subprocess.py", line 269, in call
+    return p.wait(timeout=timeout)
+  File "C:\Python36\lib\subprocess.py", line 1049, in wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Modeltech_pe_edu_10.4a\\win32pe_edu\\vsim.exe', '-c', 'tb_SimplifiedMIPSProcessor', '-do', 'modelsim_framework.do']' timed out after 30 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36\lib\shutil.py", line 544, in move
+    os.rename(src, real_dst)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out' -> 'temp/modelsim_dump.out'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "test_framework.py", line 186, in <module>
+    main()
+  File "test_framework.py", line 61, in main
+    sim_success = modelsim.sim(timeout=options['sim-timeout'], deep_debug=options['deep_debug'])
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 109, in sim
+    busy_move('ModelSimWork/dump.out','temp/modelsim_dump.out',missingok=True)
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 165, in busy_move
+    raise e  # stop trying if we have reached the timeout
+  File "C:\Users\Colby McKinley\cpre381\CPRE381\Proj-C\cpre381-toolflow-release\scripts\modelsim.py", line 158, in busy_move
+    shutil.move(src,dest)
+  File "C:\Python36\lib\shutil.py", line 559, in move
+    os.unlink(src)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'ModelSimWork/dump.out'
